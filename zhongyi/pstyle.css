@@ -1,0 +1,5 @@
+body{margin: 0}
+h1{font-size: 24px; font-weight: bold; color: #54740f; font-family: "Microsoft Yahei"; text-align: center; line-height: 50px; letter-spacing: 8px}
+div.title{background: url(pic.png) 0 -3px repeat-x; height: 36px; line-height: 36px; margin-top: 10px; padding: 0 30px; font-size: 18px; font-family: "Microsoft Yahei"; color: #195658}
+div.content{font-size: 14px; margin: 0; padding: 10px 50px; line-height: 26px; background: #e4f0f1; font-family: "Microsoft Yahei"; letter-spacing: 2px; border-bottom: 1px dashed #195658}
+p{margin-left: 100px; font-size: 14px}
