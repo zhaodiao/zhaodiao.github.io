@@ -8,6 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -63,16 +64,20 @@ var _hmt = _hmt || [];
 <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 </section>
 
-<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
-var cloudTieConfig = {
-  url: document.location.href, 
-  sourceId: "",
-  productKey: "cd32dd06659f4d6bb1bba36aeabdff43",
-  target: "cloud-tie-wrapper"
-};
-var yunManualLoad = true;
-Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+var gitment = new Gitment({
+  id: 'location.href', 
+  owner: 'zhaodiao',
+  repo: 'zhaodiao.net',
+  oauth: {
+    client_id: '4a33e0bbbae10050792d',
+    client_secret: '62d264f9a15a3e3ea50dab2c347f966d64203465',
+  },
+})
+gitment.render('container')
 </script>
 
       <footer class="site-footer">
