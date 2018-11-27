@@ -7,7 +7,7 @@
 function getInfo()
 {
 	// 获取User-agent的 方法
-	alert(navigator.userAgent);
+	document.write(navigator.userAgent);
 	
 	// 获取response header信息
 	if (window.XMLHttpRequest) {
@@ -23,16 +23,16 @@ function getInfo()
 		  // 4 = "loaded"
 		  if (xmlhttp.status == 200) {
 			// 200 = "OK
-			alert(xmlhttp.getAllResponseHeaders());
+			document.write(xmlhttp.getAllResponseHeaders());
 		  } else {
-			alert("Problem retrieving data:" + xmlhttp.statusText);
+			document.write("Problem retrieving data:" + xmlhttp.statusText);
 		  }
 		}
 	  };
 	  xmlhttp.open("GET", document.location.href, true);
 	  xmlhttp.send(null);
 	} else {
-	  alert("Your browser does not support XMLHTTP.");
+	  document.write("Your browser does not support XMLHTTP.");
 	}
 }
 </script>
