@@ -84,7 +84,7 @@ function getHeaders() {
     </script>
     <script type="application/javascript" src="http://ipinfo.io/?format=jsonp&callback=getIP"></script>	
 
-	<p id="ipify">正在获取IP地址...</p>
+	<p id="ipify" color="red">外网IP地址：<span>正在获取...<span></p>
 	<script>
 	function user_location() {
 	  var xhttp = new XMLHttpRequest();
@@ -125,7 +125,7 @@ function getHeaders() {
 	txt += "Browser Language: " + navigator.language + "<br>";
 	txt += "Browser Online: " + navigator.onLine + "<br>";
 	txt += "Platform: " + navigator.platform + "<br>";
-	txt += "User-agent header: " + navigator.userAgent + "</div>";
+	txt += "User-agent: " + navigator.userAgent + "</div>";
 	document.getElementById("UserAgent").innerHTML=txt;
 	</script>
 
