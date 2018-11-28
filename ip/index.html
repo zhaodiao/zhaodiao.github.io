@@ -37,18 +37,19 @@ function getHeaders() {
 		if (key != "")
 		display += "<b>" + key + "</b> : " + data[key] + "<br>";
 	}
-	document.getElementById("headers").innerHTML =  display; 
+	document.getElementById("Headers").innerHTML =  display; 
 }	
 </script>
-	
- <script type="text/javascript">
-        function findIP(onNewIP) { //  onNewIp - your listener function for new IPs
+
+<script type="text/javascript">
+  function findIP(onNewIP) { //  onNewIp - your listener function for new IPs
   var myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection; //compatibility for firefox and chrome
   var pc = new myPeerConnection({iceServers: []}),
     noop = function() {},
     localIPs = {},
     ipRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g,
     key;
+
   function ipIterate(ip) {
     if (!localIPs[ip]) onNewIP(ip);
     localIPs[ip] = true;
@@ -66,56 +67,85 @@ function getHeaders() {
     ice.candidate.candidate.match(ipRegex).forEach(ipIterate);
   };
 }
-</script>	
+</script>
 </head>
 <body>
 <h1>头信息</h1>
-<div>---ip---</div>	
-<script type="application/javascript">
-function getIP(json) {
-    var tmp = JSON.stringify(json, null, 2);
-    for (key in json) {
-    document.write("<br>" + key + " : ", json[key]);
-}
-}
-</script>
-<script type="application/javascript" src="http://ipinfo.io/?format=jsonp&callback=getIP"></script>	
-<br>
+	<div>---ip---</div>	
+	<!--textarea id="ipinfo" style="width:100%;height:120px;"></textarea-->
+    <script type="application/javascript">
+      function getIP(json) {
+            <!--document.getElementById("ipinfo").value = JSON.stringify(json, null, 2);-->
+			var tmp = JSON.stringify(json, null, 2);
+            for (key in json) {
+            document.write("<br>" + key + " : ", json[key]);
+        }
+      }
+    </script>
+    <script type="application/javascript" src="http://ipinfo.io/?format=jsonp&callback=getIP"></script>	
 	
-<p id="headers">我的第1个段落。</p>
-<script>
-getHeaders();
-</script>
+	
+	
+	
 
-<p id="UserAgent">我的第2个段落。</p>	
-<script>
-var txt = "";
-txt += "<p>Browser CodeName: " + navigator.appCodeName + "</p>";
-txt += "<p>Browser Name: " + navigator.appName + "</p>";
-txt += "<p>Browser Version: " + navigator.appVersion + "</p>";
-txt += "<p>Cookies Enabled: " + navigator.cookieEnabled + "</p>";
-txt += "<p>Browser Language: " + navigator.language + "</p>";
-txt += "<p>Browser Online: " + navigator.onLine + "</p>";
-txt += "<p>Platform: " + navigator.platform + "</p>";
-txt += "<p>User-agent header: " + navigator.userAgent + "</p>";
-document.getElementById("UserAgent").innerHTML=txt;
-</script>
- 
-<script>
-	var ul = document.createElement('ul');
-	ul.textContent = 'Your IPs are (WebRTC): '
-	document.body.appendChild(ul);
+	<div id="WebRTCIP">我的第三个段落。</div>
+	<script>	
 	function addIP(ip) {
-	  console.log('got ip: ', ip);
+	  var txt = "WebRTC IP: " + ip;
+	  document.getElementById("WebRTCIP").innerHTML=txt;
+	}
+	findIP(addIP);	
+	</script>
+
+	<p>-------headers--------</p>
+	<p id="Headers">我的第一个段落。</p>
+	<script>
+	getHeaders();
+	</script>
+
+	<p>-------user-agent--------</p>
+	<p id="UserAgent">我的第二个段落。</p>
+	<script>
+	var txt = "";
+	txt += "<div>Browser CodeName: " + navigator.appCodeName + "<br>";
+	txt += "Browser Name: " + navigator.appName + "<br>";
+	txt += "Browser Version: " + navigator.appVersion + "<br>";
+	txt += "Cookies Enabled: " + navigator.cookieEnabled + "<br>";
+	txt += "Browser Language: " + navigator.language + "<br>";
+	txt += "Browser Online: " + navigator.onLine + "<br>";
+	txt += "Platform: " + navigator.platform + "<br>";
+	txt += "User-agent header: " + navigator.userAgent + "</div>";
+	document.getElementById("UserAgent").innerHTML=txt;
+	</script>
+
+	<!--script>
+	var ul = document.createElement('p');
+	ul.textContent = 'WebRTC IP: '
+	document.body.appendChild(ul);
+
+	function addIP(ip) {
 	  var li = document.createElement('li');
 	  li.textContent = ip;
 	  ul.appendChild(li);
 	}
+
 	findIP(addIP);
-</script>
-
- 
+	</script-->
 	
+	<div>---ipify---</div>
+	<p id="demo">我的第四个段落。</p>
+	<script>
+	function user_location() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+		  document.getElementById("demo").innerHTML =  this.responseText; 
+		}
+	  };
+	  xhttp.open("GET", "//api.ipify.org?format=json", true);
+	  xhttp.send();
+	}  
+	user_location();
+	</script>	
 </body>
-
 </html>
