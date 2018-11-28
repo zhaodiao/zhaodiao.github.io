@@ -72,22 +72,7 @@ function getHeaders() {
 </head>
 <body>
     <div>---ip---</div>	
-    <script type="application/javascript">
-	function print_ipinfo() {
-	  var xhttp = new XMLHttpRequest();
-	  xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-		  ///document.getElementById("ipinfo").innerHTML =  this.responseText;
-		  ///document.write(this.responseText);
-		  var jsonx = JSON.parse(this.responseText);
-		  for (key in jsonx) {
-				document.write("<br>" + key + " : ", jsonx[key]);
-			}
-		}
-	  };
-	  xhttp.open("GET", "//ipinfo.io/json", true);
-	  xhttp.send();
-	}  	  
+    <script>	  
 	print_ipinfo();
     </script>
 	
@@ -163,4 +148,21 @@ function getHeaders() {
 	</script-->
 		
 </body>
+	<script type="application/javascript">
+	function print_ipinfo() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+		  ///document.getElementById("ipinfo").innerHTML =  this.responseText;
+		  ///document.write(this.responseText);
+		  var jsonx = JSON.parse(this.responseText);
+		  for (key in jsonx) {
+				document.write("<br>" + key + " : ", jsonx[key]);
+			}
+		}
+	  };
+	  xhttp.open("GET", "//ipinfo.io/json", true);
+	  xhttp.send();
+	}  
+	</script>	
 </html>
