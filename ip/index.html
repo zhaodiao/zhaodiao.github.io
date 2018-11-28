@@ -37,7 +37,7 @@ function getHeaders() {
 		if (key != "")
 		display += "<b>" + key + "</b> : " + data[key] + "<br>";
 	}
-	document.getElementById("demo").innerHTML =  display; 
+	document.getElementById("headers").innerHTML =  display; 
 }	
 </script>
 	
@@ -70,7 +70,24 @@ function getHeaders() {
 </head>
 <body>
 <h1>头信息</h1>
-<p id="demo">我的第1个段落。</p>
+<div>---ip---</div>	
+<script type="application/javascript">
+function getIP(json) {
+    var tmp = JSON.stringify(json, null, 2);
+    for (key in json) {
+    document.write("<br>" + key + " : ", json[key]);
+}
+}
+</script>
+<script type="application/javascript" src="http://ipinfo.io/?format=jsonp&callback=getIP"></script>	
+<br>
+	
+<p id="headers">我的第1个段落。</p>
+<script>
+getHeaders();
+</script>
+
+<p id="UserAgent">我的第2个段落。</p>	
 <script>
 var txt = "";
 txt += "<p>Browser CodeName: " + navigator.appCodeName + "</p>";
@@ -83,12 +100,8 @@ txt += "<p>Platform: " + navigator.platform + "</p>";
 txt += "<p>User-agent header: " + navigator.userAgent + "</p>";
 document.getElementById("UserAgent").innerHTML=txt;
 </script>
-	
+ 
 <script>
-getHeaders();
-</script>
-	
-    <script>
 	var ul = document.createElement('ul');
 	ul.textContent = 'Your IPs are (WebRTC): '
 	document.body.appendChild(ul);
@@ -99,10 +112,9 @@ getHeaders();
 	  ul.appendChild(li);
 	}
 	findIP(addIP);
-	</script>
+</script>
 
-<p>---------------</p>
-<p id="UserAgent">我的第2个段落。</p>
+ 
 	
 </body>
 
