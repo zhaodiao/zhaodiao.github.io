@@ -83,10 +83,21 @@ function getHeaders() {
       }
     </script>
     <script type="application/javascript" src="http://ipinfo.io/?format=jsonp&callback=getIP"></script>	
-	
-	
-	
-	
+
+	<p id="ipify">我的第四个段落。</p>
+	<script>
+	function user_location() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+		  document.getElementById("ipify").innerHTML =  this.responseText; 
+		}
+	  };
+	  xhttp.open("GET", "//api.ipify.org?format=json", true);
+	  xhttp.send();
+	}  
+	user_location();
+	</script>	
 
 	<div id="WebRTCIP">我的第三个段落。</div>
 	<script>	
@@ -131,21 +142,6 @@ function getHeaders() {
 
 	findIP(addIP);
 	</script-->
-	
-	<div>---ipify---</div>
-	<p id="demo">我的第四个段落。</p>
-	<script>
-	function user_location() {
-	  var xhttp = new XMLHttpRequest();
-	  xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-		  document.getElementById("demo").innerHTML =  this.responseText; 
-		}
-	  };
-	  xhttp.open("GET", "//api.ipify.org?format=json", true);
-	  xhttp.send();
-	}  
-	user_location();
-	</script>	
+		
 </body>
 </html>
