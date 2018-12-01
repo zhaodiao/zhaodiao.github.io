@@ -1,7 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="utf-8"> 
+<title>各种IP信息</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no"/>
 <script>
   function findIP(onNewIP) { //  onNewIp - your listener function for new IPs
   var myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection; //compatibility for firefox and chrome
@@ -97,11 +100,11 @@ function getIPStack(eid) {
      if (xhr.readyState == 4 && xhr.status == 200) {
 		for (key in xhr.response) {
 				if (key==='ip' || key==='query') {
-				document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : <a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + xhr.response[key] + '">' + xhr.response[key] + '</a>'; 
-				}else if (key==='country' || key==='city') {
-				document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : ' + xhr.response[key]; 
+					document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : <a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + xhr.response[key] + '">' + xhr.response[key] + '</a>'; 
+				}else if (key==='country_name' || key==='city') {
+					document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : ' + xhr.response[key]; 
+				}else if (key==='location' || key==='time_zone' || key==='currency' || key==='connection' || key==='security') {
 				}
-			}
 			}
 		}
 	}
@@ -129,6 +132,19 @@ function getIPApiCom(eid) {
 } 
 </script>
 
+<script>
+function getEDNS(eid) {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+	  document.getElementById(eid).innerHTML = this.responseText; 
+		}
+	};
+	xhttp.open("GET", "http://edns.ip-api.com/json", true);
+	xhttp.send();
+}  
+</script>	
+
 </head>
 <body>
 	<div><p id="WebRTCIP" style="color:green">Web RTC IP 没有获取到</p></div>
@@ -154,6 +170,9 @@ function getIPApiCom(eid) {
 	
 	<div><p style="color:blue"><a href='http://ip-api.com/json?lang=zh-CN'>ip-api.com</a> : <span id="ipapicom" style="color:black">♠</span></p></div>
 	<script>getIPApiCom('ipapicom');</script>	
+	
+	<div><p id="edns" style="color:black">Print Client Subnet and DNS server...</p></div>
+	<script>getEDNS('edns');</script>		
 
 	<div><p style="color:blue">user-agent : <span id="UserAgent" style="color:black">♠</span></p></div>
 	<script>document.getElementById("UserAgent").innerHTML=navigator.userAgent;</script>
