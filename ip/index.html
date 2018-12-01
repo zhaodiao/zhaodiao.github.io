@@ -43,7 +43,26 @@ function getHeaders() {
 	document.getElementById("Headers").innerHTML =  display; 
 }	
 </script>
-
+<script>
+function getIPDYC(eid) {
+	var xhr = new XMLHttpRequest();
+	xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
+	xhr.open('GET', "http://diyache.org/my/ip/json.php", true);
+	xhr.send();
+	xhr.onreadystatechange = processRequest;
+	function processRequest(e) {
+	 if (xhr.readyState == 4 && xhr.status == 200) {
+		for (key in xhr.response) {
+				if (key==='remote_addr') 
+					document.getElementById(eid).innerHTML += '<b>'+ key + '</b> : <a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + xhr.response[key] + '">' + xhr.response[key] + '</a>';
+				else if (xhr.response[key] != "")
+					document.getElementById(eid).innerHTML += " <b>" + key + "</b> : " + xhr.response[key];
+			}
+		}
+	}
+} 
+</script>
+	
 <script type="text/javascript">
   function findIP(onNewIP) { //  onNewIp - your listener function for new IPs
   var myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection; //compatibility for firefox and chrome
@@ -101,6 +120,9 @@ function getHeaders() {
 	}  
 	user_location();
 	</script>	
+		
+	<div><p style="color:blue"><a href='http://diyache.org/my/ip/json.php'>dyc</a>  : <span id="dyc" style="color:black"></span></p></div>
+	<script>getIPDYC('dyc');</script>		
 
 	<div id="WebRTCIP">WebRTCIP 查询失败.</div>
 	<script>	
