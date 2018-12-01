@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<script>
+  function findIP(onNewIP) { //  onNewIp - your listener function for new IPs
+  var myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection; //compatibility for firefox and chrome
+  var pc = new myPeerConnection({iceServers: []}),
+    noop = function() {},
+    localIPs = {},
+    ipRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g,
+    key;
+
+  function ipIterate(ip) {
+    if (!localIPs[ip]) onNewIP(ip);
+    localIPs[ip] = true;
+  }
+  pc.createDataChannel(""); //create a bogus data channel
+  pc.createOffer(function(sdp) {
+    sdp.sdp.split('\n').forEach(function(line) {
+      if (line.indexOf('candidate') < 0) return;
+      line.match(ipRegex).forEach(ipIterate);
+    });
+    pc.setLocalDescription(sdp, noop, noop);
+  }, noop); // create offer and set local description
+  pc.onicecandidate = function(ice) { //listen for candidate events
+    if (!ice || !ice.candidate || !ice.candidate.candidate || !ice.candidate.candidate.match(ipRegex)) return;
+    ice.candidate.candidate.match(ipRegex).forEach(ipIterate);
+  };
+}
+</script>
+
+<script>
+function getIPInfo(eid) {
+	var xhr = new XMLHttpRequest();
+	xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
+	xhr.open('GET', "https://ipinfo.io/json?token=4fdf0baa25d132", true);
+	xhr.send();
+	xhr.onreadystatechange = processRequest;
+	function processRequest(e) {
+     if (xhr.readyState == 4 && xhr.status == 200) {
+		for (key in xhr.response) {
+				if (key==='ip' || key==='query') {
+				document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : <a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + xhr.response[key] + '">' + xhr.response[key] + '</a>'; 
+				}else if (key==='country' || key==='city') {
+				document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : ' + xhr.response[key]; 
+				}
+			}
+		}
+	}
+} 
+</script>
+
+<script>
+function getIPIFY() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+	  document.getElementById("ipify").innerHTML = '<a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + this.responseText + '">' + this.responseText + '</a>'; 
+	}
+	};
+	xhttp.open("GET", "//api.ipify.org", true);
+	xhttp.send();
+}  
+</script>	
+
+<script>
+function getIPApiCo(eid) {
+	var xhr = new XMLHttpRequest();
+	xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
+	xhr.open('GET', "https://ipapi.co/json/", true);
+	xhr.send();
+	xhr.onreadystatechange = processRequest;
+	function processRequest(e) {
+	 if (xhr.readyState == 4 && xhr.status == 200) {
+		for (key in xhr.response) {
+				//document.write("<br>" + key + " : ", xhr.response[key]);
+				if (key==='ip' || key==='query') {
+				document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : <a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + xhr.response[key] + '">' + xhr.response[key] + '</a>'; 
+				}else if (key==='country' || key==='city') {
+				document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : ' + xhr.response[key]; 
+				}
+			}
+		}
+	}
+} 
+</script>
+
+<script>
+function getIPStack(eid) {
+	var xhr = new XMLHttpRequest();
+	xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
+	xhr.open('GET', "http://api.ipstack.com/check?access_key=8aeb84255ed86908ca5b26d2cadf06fb", true);
+	xhr.send();
+	xhr.onreadystatechange = processRequest;
+	function processRequest(e) {
+     if (xhr.readyState == 4 && xhr.status == 200) {
+		for (key in xhr.response) {
+				if (key==='ip' || key==='query') {
+				document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : <a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + xhr.response[key] + '">' + xhr.response[key] + '</a>'; 
+				}else if (key==='country' || key==='city') {
+				document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : ' + xhr.response[key]; 
+				}
+			}
+			}
+		}
+	}
+} 
+</script>
+
+<script>
+function getIPApiCom(eid) {
+	var xhr = new XMLHttpRequest();
+	xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
+	xhr.open('GET', "http://ip-api.com/json?lang=zh-CN", true);
+	xhr.send();
+	xhr.onreadystatechange = processRequest;
+	function processRequest(e) {
+     if (xhr.readyState == 4 && xhr.status == 200) {
+		for (key in xhr.response) {
+				if (key==='ip' || key==='query') {
+				document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : <a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + xhr.response[key] + '">' + xhr.response[key] + '</a>'; 
+				}else if (key==='country' || key==='city') {
+				document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : ' + xhr.response[key]; 
+				}
+			}
+		}
+	}
+} 
+</script>
+
+</head>
+<body>
+	<div><p id="WebRTCIP" style="color:green">Web RTC IP 没有获取到</p></div>
+	<script>	
+	function addIP(ip) {
+	  var txt = "WebRTC IP: " + ip;
+	  document.getElementById("WebRTCIP").innerHTML=txt;
+	}
+	findIP(addIP);	
+	</script>
+	
+	<div><p style="color:blue">ipinfo.io : <span id="ipinfo" style="color:black">♠</span></p></div>
+	<script>getIPInfo('ipinfo');</script>
+	
+	<div><p><b>ipify ip : ♠ </b><span id="ipify" style="color:red">从ipify获取ip地址...</span></p></div>
+	<script>getIPIFY();	</script>	
+	
+	<div><p style="color:blue">ipapi.co : <span id="ipapico" style="color:black">♠</span></p></div>
+	<script>getIPApiCo('ipapico');</script>
+	
+	<div><p style="color:blue">ipstack.co : <span id="ipstack" style="color:black">♠</span></p></div>
+	<script>getIPStack('ipstack');</script>
+	
+	<div><p style="color:blue">ip-api.com : <span id="ipapicom" style="color:black">♠</span></p></div>
+	<script>getIPApiCom('ipapicom');</script>	
+
+	<div><p style="color:blue">user-agent : <span id="UserAgent" style="color:black">♠</span></p></div>
+	<script>document.getElementById("UserAgent").innerHTML=navigator.userAgent;</script>
+
+	<!--script>
+	var ul = document.createElement('p');
+	ul.textContent = 'WebRTC IP: '
+	document.body.appendChild(ul);
+
+	function addIP(ip) {
+	  var li = document.createElement('li');
+	  li.textContent = ip;
+	  ul.appendChild(li);
+	}
+
+	findIP(addIP);
+	</script-->
+</body>
+</html>
