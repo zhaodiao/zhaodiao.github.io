@@ -114,8 +114,8 @@ function getIPStack(eid) {
 	var xhr = new XMLHttpRequest();
 	xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
 	xhr.open('GET', "http://api.ipstack.com/check?access_key=8aeb84255ed86908ca5b26d2cadf06fb", true);
-	//xhr.setRequestHeader('Content-type', 'application/json;charset=UTF-8');
-	//xhr.setRequestHeader('Access-Control-Allow-Origin','http://api.ipstack.com');
+	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	xhr.setRequestHeader('Access-Control-Allow-Origin','http://api.ipstack.com');
 	xhr.send();
 	xhr.onreadystatechange = processRequest;
 	function processRequest(e) {
