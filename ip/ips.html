@@ -230,6 +230,22 @@ function getIPIP(eid) {
 } 
 </script>
 	
+<script>
+function getIPIP(eid) {
+	var ipaddr=document.getElementById("remote_addr").textContent;
+	var xhr = new XMLHttpRequest();
+	xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
+	xhr.open('GET', "http://freeapi.ipip.net/"+ipaddr, true);
+	xhr.send();
+	xhr.onreadystatechange = processRequest;
+	function processRequest(e) {
+	 if (xhr.readyState == 4 && xhr.status == 200) {
+		eid.innerHTML += '&nbsp;' + xhr.responseText;
+		}
+	}
+} 
+</script>
+
 </head>
 <body>
 	<div><p id="WebRTCIP" style="color:green">Web RTC IP 没有获取到</p></div>
