@@ -46,7 +46,7 @@ function getIPDYC(eid) {
 		for (key in xhr.response) {
 				if (key==='ip') 
 					document.getElementById(eid).innerHTML += '<a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + xhr.response[key] + '"><span id="remote_addr">' + xhr.response[key] + '</span></a>';
-				else if (xhr.response[key] != "")
+				else if (key==='country' || key==='city') ///(xhr.response[key] != "")
 					document.getElementById(eid).innerHTML += " <b>" + key + "</b> : " + xhr.response[key];
 			}
 		}
