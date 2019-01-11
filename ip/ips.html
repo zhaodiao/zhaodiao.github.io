@@ -34,7 +34,7 @@
 </script>
 
 <script>
-function getIPDYC(eid) {
+function getIPSB(eid) {
 	var xhr = new XMLHttpRequest();
 	xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
 	///xhr.open('GET', "http://diyache.org/my/ip/json.php", true);
@@ -45,7 +45,7 @@ function getIPDYC(eid) {
 	 if (xhr.readyState == 4 && xhr.status == 200) {
 		for (key in xhr.response) {
 				if (key==='ip') 
-					document.getElementById(eid).innerHTML += '<a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + xhr.response[key] + '"><span id="remote_addr">' + xhr.response[key] + '</span></a>';
+					document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : <a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + xhr.response[key] + '"><span id="remote_addr">' + xhr.response[key] + '</span></a>';
 				else if (key==='country' || key==='city') ///(xhr.response[key] != "")
 					document.getElementById(eid).innerHTML += " <b>" + key + "</b> : " + xhr.response[key];
 			}
@@ -189,28 +189,6 @@ function getEDNS(eid) {
 </script>	
 	
 <script>
-function getIPSB(eid) {
-	var xhr = new XMLHttpRequest();
-	xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
-	xhr.open('GET', "https://api.ip.sb/geoip/", true);
-	xhr.send();
-	xhr.onreadystatechange = processRequest;
-	function processRequest(e) {
-	 if (xhr.readyState == 4 && xhr.status == 200) {
-		for (key in xhr.response) {
-				//document.write("<br>" + key + " : ", xhr.response[key]);
-				if (key==='ip' || key==='query') {
-				document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : <a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + xhr.response[key] + '">' + xhr.response[key] + '</a>'; 
-				}else if (key==='country' || key==='city') {
-				document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : ' + xhr.response[key]; 
-				}
-			}
-		}
-	}
-} 
-</script>
-
-<script>
 function getIPIP(eid) {
 	var ipaddr=document.getElementById("remote_addr").textContent;
 	var xhr = new XMLHttpRequest();
@@ -237,8 +215,8 @@ function getIPIP(eid) {
 	findIP(addIP);	
 	</script>
 	
-	<div><p style="color:blue"><a href='http://diyache.org/my/ip/json.php'>dyc</a>  : <span id="dyc" style="color:black">♠</span>&nbsp;<!--span id="taobao" style="color:black" onclick="getTaoBaoIPInfo(this)">点击查位置</span--></p></div>
-	<script>getIPDYC('dyc');</script>
+	<div><p style="color:blue"><a href='https://api.ip.sb/geoip/'>ip.sb</a> : <span id="ipsb" style="color:black">♠</span></p></div>
+	<script>getIPSB('ipsb');</script>
 	
 	<div><p style="color:blue"><a href='http://diyache.org/my/ip/json.php'>ipip.net</a>  : <span id="ipip" style="color:black">♠</span>&nbsp;</p></div>
 	<script>getIPIP('ipip');</script>
@@ -257,9 +235,6 @@ function getIPIP(eid) {
 	
 	<div><p style="color:blue"><a href='http://ip-api.com/json?lang=zh-CN'>ip-api.com</a> : <span id="ipapicom" style="color:black">♠</span></p></div>
 	<script>getIPApiCom('ipapicom');</script>	
-	
-	<div><p style="color:blue"><a href='https://api.ip.sb/geoip/'>ip.sb</a> : <span id="ipsb" style="color:black">♠</span></p></div>
-	<script>getIPSB('ipsb');</script>
 	
 	<div><p style="color:blue"><a href='http://edns.ip-api.com/json'>edns.ip-api.com/json</a> : <span id="edns" style="color:black">♠Print Client Subnet and DNS server...</span></p></div>
 	<script>getEDNS('edns');</script>		
