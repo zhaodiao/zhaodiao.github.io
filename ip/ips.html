@@ -208,6 +208,27 @@ function getIPSB(eid) {
 	}
 } 
 </script>
+
+<script>
+function getIPIP(eid) {
+	var xhr = new XMLHttpRequest();
+	xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
+	xhr.open('GET', "http://diyache.org/my/ip/json.php", true);
+	xhr.send();
+	xhr.onreadystatechange = processRequest;
+	function processRequest(e) {
+	 if (xhr.readyState == 4 && xhr.status == 200) {
+		for (key in xhr.response) {
+				if (key==='remote_addr') 
+					document.getElementById(eid).innerHTML += '<a href="http://freeapi.ipip.net/' + xhr.response[key] + '"><span id="remote_addr">' + xhr.response[key] + '</span></a>';
+				else if (xhr.response[key] != "")
+					document.getElementById(eid).innerHTML += " <b>" + key + "</b> : " + xhr.response[key];
+			}
+		}
+		///return xhr.response['remote_addr'];
+	}
+} 
+</script>
 	
 </head>
 <body>
@@ -223,6 +244,9 @@ function getIPSB(eid) {
 	<div><p style="color:blue"><a href='http://diyache.org/my/ip/json.php'>dyc</a>  : <span id="dyc" style="color:black">♠</span>&nbsp;<!--span id="taobao" style="color:black" onclick="getTaoBaoIPInfo(this)">点击查位置</span--></p></div>
 	<script>getIPDYC('dyc');</script>
 	
+	<div><p style="color:blue"><a href='http://diyache.org/my/ip/json.php'>ipip.net</a>  : <span id="ipip" style="color:black">♠</span>&nbsp;</p></div>
+	<script>getIPIP('ipip');</script>
+
 	<div><p style="color:blue"><a href='https://ipinfo.io/json?token=4fdf0baa25d132'>ipinfo.io</a>  : <span id="ipinfo" style="color:black">♠</span></p></div>
 	<script>getIPInfo('ipinfo');</script>
 	
