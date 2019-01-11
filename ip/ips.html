@@ -37,13 +37,14 @@
 function getIPDYC(eid) {
 	var xhr = new XMLHttpRequest();
 	xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
-	xhr.open('GET', "http://diyache.org/my/ip/json.php", true);
+	///xhr.open('GET', "http://diyache.org/my/ip/json.php", true);
+	xhr.open('GET', "https://api.ip.sb/geoip/", true);
 	xhr.send();
 	xhr.onreadystatechange = processRequest;
 	function processRequest(e) {
 	 if (xhr.readyState == 4 && xhr.status == 200) {
 		for (key in xhr.response) {
-				if (key==='remote_addr') 
+				if (key==='ip') 
 					document.getElementById(eid).innerHTML += '<a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + xhr.response[key] + '"><span id="remote_addr">' + xhr.response[key] + '</span></a>';
 				else if (xhr.response[key] != "")
 					document.getElementById(eid).innerHTML += " <b>" + key + "</b> : " + xhr.response[key];
