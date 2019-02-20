@@ -34,6 +34,47 @@
 </script>
 
 <script>
+function getIPSohu(eid) {
+	var xhr = new XMLHttpRequest();
+	xhr.responseType = "json"; //var returnCitySN = {"cip": "117.107.143.110", "cid": "110000", "cname": "北京市"};
+	xhr.open('GET', "http://pv.sohu.com/cityjson?ie=utf-8", true);
+	xhr.send();
+	xhr.onreadystatechange = processRequest;
+	function processRequest(e) {
+	 if (xhr.readyState == 4 && xhr.status == 200) {
+		for (key in xhr.response) {
+				if (key==='cip') 
+					document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : <a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + xhr.response[key] + '"><span id="remote_addr">' + xhr.response[key] + '</span></a>';
+				else if (key==='cname') ///(xhr.response[key] != "")
+					document.getElementById(eid).innerHTML += " <b>" + key + "</b> : " + xhr.response[key];
+			}
+		}
+	}
+} 
+</script>
+
+<script>
+function getIP360(eid) {
+	var xhr = new XMLHttpRequest();
+	xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
+	xhr.open('GET', "http://ip.360.cn/IPShare/info", true);
+	xhr.send();
+	xhr.onreadystatechange = processRequest;
+	function processRequest(e) {
+	 if (xhr.readyState == 4 && xhr.status == 200) {
+		for (key in xhr.response) {
+				if (key==='ip') 
+					document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : <a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + xhr.response[key] + '"><span id="remote_addr">' + xhr.response[key] + '</span></a>';
+				else if (key==='location') ///(xhr.response[key] != "")
+					document.getElementById(eid).innerHTML += " <b>" + key + "</b> : " + xhr.response[key];
+			}
+		}
+	}
+} 
+</script>
+
+
+<script>
 function getIPSB(eid) {
 	var xhr = new XMLHttpRequest();
 	xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
@@ -100,7 +141,7 @@ function getIPIFY() {
 	  document.getElementById("ipify").innerHTML = '<a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + this.responseText + '">' + this.responseText + '</a>'; 
 	}
 	};
-	xhttp.open("GET", "//api.ipify.org", true);
+	xhttp.open("GET", "https://api.ipify.org", true);
 	xhttp.send();
 }  
 </script>	
@@ -188,21 +229,21 @@ function getEDNS(eid) {
 }  
 </script>	
 	
-<script>
+<!-- script>
 function getIPIP(eid) {
-	var ipaddr=document.getElementById("remote_addr").textContent;
+	var ipaddr=document.getElementById("remote_addr").innerHTML; //获取不到
 	var xhr = new XMLHttpRequest();
-	xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
+	xhr.responseType = "json";
 	xhr.open('GET', "http://freeapi.ipip.net/"+ipaddr, true);
 	xhr.send();
 	xhr.onreadystatechange = processRequest;
 	function processRequest(e) {
 	 if (xhr.readyState == 4 && xhr.status == 200) {
-		eid.innerHTML += '&nbsp;' + xhr.responseText;
+		eid.innerHTML += '&nbsp;' + xhr.responseText + ipaddr;
 		}
 	}
 } 
-</script>
+</script -->
 
 </head>
 <body>
@@ -218,9 +259,6 @@ function getIPIP(eid) {
 	<div><p style="color:blue"><a href='https://api.ip.sb/geoip/'>ip.sb</a> : <span id="ipsb" style="color:black">♠</span></p></div>
 	<script>getIPSB('ipsb');</script>
 	
-	<div><p style="color:blue"><a href='https://www.ipip.net/ip.html'>ipip.net</a>  : <span id="ipip" style="color:black">♠</span>&nbsp;</p></div>
-	<script>getIPIP('ipip');</script>
-
 	<div><p style="color:blue"><a href='https://ipinfo.io/json?token=4fdf0baa25d132'>ipinfo.io</a>  : <span id="ipinfo" style="color:black">♠</span></p></div>
 	<script>getIPInfo('ipinfo');</script>
 	
@@ -242,6 +280,12 @@ function getIPIP(eid) {
 	<div><p style="color:blue">user-agent : <span id="UserAgent" style="color:black">♠</span></p></div>
 	<script>document.getElementById("UserAgent").innerHTML=navigator.userAgent;</script>
 
+	<div><p style="color:blue"><a href='https://www.ipip.net/ip.html'>ipip.net</a>  : <span id="ipip" style="color:black">♠</span>&nbsp;</p></div>
+	<!-- script>getIPIP('ipip');</script -->
+
+	<div><p style="color:blue"><a href='http://ip.360.cn/IPShare/info'>360</a> : <span id="ip360" style="color:black">♠</span></p></div>
+	<script>getIP360('ip360');</script>
+	
 	<!--script>
 	var ul = document.createElement('p');
 	ul.textContent = 'WebRTC IP: '
