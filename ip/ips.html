@@ -138,10 +138,10 @@ function getIPIFY() {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
-	  document.getElementById("ipify").innerHTML = '<a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + this.responseText + '">' + this.responseText + '</a>'; 
+	  document.getElementById("ipify").innerHTML = '<a href="https://geo.ipify.org/api/v1?apiKey=at_aENkhE3A9eCvJdswJfmzdlZYCJUfm&ipAddress=' + this.responseText + '">' + this.responseText + '</a>'; 
 	}
 	};
-	xhttp.open("GET", "https://api.ipify.org", true);
+	xhttp.open("GET", "https://geo.ipify.org/api/v1?apiKey=at_aENkhE3A9eCvJdswJfmzdlZYCJUfm&ipAddress=?", true);
 	xhttp.send();
 }  
 </script>	
@@ -261,9 +261,6 @@ function getIPIP(eid) {
 	
 	<div><p style="color:blue"><a href='https://ipinfo.io/json?token=4fdf0baa25d132'>ipinfo.io</a>  : <span id="ipinfo" style="color:black">♠</span></p></div>
 	<script>getIPInfo('ipinfo');</script>
-	
-	<div><p><b><a href='https://api.ipify.org/?format=json'>ipify ip</a>  : ♠ </b><span id="ipify" style="color:red">从ipify获取ip地址...</span></p></div>
-	<script>getIPIFY();	</script>	
 	
 	<div><p style="color:blue"><a href='https://ipapi.co/json/'>ipapi.co</a>  : <span id="ipapico" style="color:black">♠</span></p></div>
 	<script>getIPApiCo('ipapico');</script>
