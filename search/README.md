@@ -254,7 +254,7 @@ http://17000.net.cn/
 http://www.im170.com/mobile.html
 http://www.100170.net/ 
 100. 注册过哪些网站
-~~~http://www.zhaohuini.com/~~~
+~~http://www.zhaohuini.com/~~
 https://www.reg007.com/
 101. 基站查询
 http://www.cellid.cn/
