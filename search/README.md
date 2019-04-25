@@ -157,7 +157,7 @@ http://cha.chelink.com/
 66. 车险理赔系统网址
 http://www.nia.net.cn/lp_service.asp
 67. 车险理赔信息查询系统
-http://www.bjcxlp.com.cn/
+~~http://www.bjcxlp.com.cn/~~
 
 ## 五. 查物品查资产
 
