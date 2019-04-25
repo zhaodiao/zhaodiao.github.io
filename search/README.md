@@ -256,7 +256,7 @@ http://www.100170.net/
 100. 注册过哪些网站
 ~~http://www.zhaohuini.com/~~
 https://www.reg007.com/
->>[REG007.com 搜索出注册过的网站的实现原理是什么？](https://www.zhihu.com/question/24715922) 很多证明这个网站是用来骗人的。
+>[REG007.com 搜索出注册过的网站的实现原理是什么？](https://www.zhihu.com/question/24715922) 很多答复证明这个网站是骗人的。
 101. 基站查询
 http://www.cellid.cn/
 http://www.haoservice.com/freeLocation/
