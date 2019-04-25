@@ -5,10 +5,10 @@
 网址：http://www.creditchina.gov.cn/ 
 2. 全国企业信用信息公示
 查询内容：全国企业工商登记注册信息
-http://gsxt.saic.gov.cn/（导航）
-http://gsxt.saic.gov.cn/zjgs/（总局） 
+http://gsxt.saic.gov.cn/ （导航）
+http://gsxt.saic.gov.cn/zjgs/ （总局） 
 3. 信用导航
-http://www.creditchina.gov.cn/toNavigation
+https://www.creditchina.gov.cn/
 4. 企信宝
 http://www.qixin.com/
 5. 企业信用信息查询APP
