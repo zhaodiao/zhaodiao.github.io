@@ -1,471 +1,92 @@
+
 <!DOCTYPE html>
-<html style="width: 100%;height: 100%;">
-<head>
-	<meta charset="UTF-8">
-	<title>莆田系医院全国分布图 by旺仔</title>
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-</head>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>找调网</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?fe98e39b31db3a310d6e18553acfcad7";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+  </head>
+  <body>
+ 
+    <section class="page-header">
+      <h1 class="project-name">🌻找调网🌻</h1>
+      <h2 class="project-tagline">一个自学自用的着调网,靠谱网！</h2>
+    </section>
 
-<body style="width: 100%;height: 100%;margin:0;">
-    <div id="map" style="width: 100%;height: 100%;"></div>
-    <script type="text/javascript">
-
-        var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            osm = L.tileLayer(osmUrl, {maxZoom: 17});
-
-        var map = L.map('map');
-        map.setView([31,115], 5);
-        map.addLayer(osm);
-
-//PYTHONBRIDGEBEGIN
- var marker1 = new L.Marker(new L.latLng(31.0935375404, 121.425024281)); map.addLayer(marker1);marker1.bindPopup('上海市闵行区中医院');
- var marker2 = new L.Marker(new L.latLng(31.2327669722, 121.428991907)); map.addLayer(marker2);marker2.bindPopup('上海华美美莱整形医院');
- var marker3 = new L.Marker(new L.latLng(31.195366979, 121.426722531)); map.addLayer(marker3);marker3.bindPopup('上海万众医院');
- var marker4 = new L.Marker(new L.latLng(31.0090630052, 121.235284119)); map.addLayer(marker4);marker4.bindPopup('上海安真医院');
- var marker5 = new L.Marker(new L.latLng(31.0456019287, 121.753170856)); map.addLayer(marker5);marker5.bindPopup('上海福华医院');
- var marker6 = new L.Marker(new L.latLng(31.1544851157, 121.125331075)); map.addLayer(marker6);marker6.bindPopup('上海玛丽女子医院');
- var marker7 = new L.Marker(new L.latLng(31.219369497, 121.438258045)); map.addLayer(marker7);marker7.bindPopup('上海真爱女子医院');
- var marker8 = new L.Marker(new L.latLng(31.24916171, 121.487899486)); map.addLayer(marker8);marker8.bindPopup('上海心脏病医院');
- var marker9 = new L.Marker(new L.latLng(31.1759348001, 121.448772309)); map.addLayer(marker9);marker9.bindPopup('上海远大心胸医院');
- var marker10 = new L.Marker(new L.latLng(31.1818511989, 121.442330004)); map.addLayer(marker10);marker10.bindPopup('上海仁爱医院');
- var marker11 = new L.Marker(new L.latLng(31.2221131083, 121.418056857)); map.addLayer(marker11);marker11.bindPopup('上海天大医疗美容医院');
- var marker12 = new L.Marker(new L.latLng(31.1630063614, 121.449232732)); map.addLayer(marker12);marker12.bindPopup('上海沪申五官科医院');
- var marker13 = new L.Marker(new L.latLng(31.2148558302, 121.451020451)); map.addLayer(marker13);marker13.bindPopup('上海博爱医院');
- var marker14 = new L.Marker(new L.latLng(31.2091287761, 121.404239665)); map.addLayer(marker14);marker14.bindPopup('上海新虹桥医院');
- var marker15 = new L.Marker(new L.latLng(31.2226722681, 121.417745778)); map.addLayer(marker15);marker15.bindPopup('上海九龙男子医院');
- var marker16 = new L.Marker(new L.latLng(31.2558170482, 121.38381624)); map.addLayer(marker16);marker16.bindPopup('上海城市女子医院');
- var marker17 = new L.Marker(new L.latLng(31.24916171, 121.487899486)); map.addLayer(marker17);marker17.bindPopup('上海西郊骨科医院');
- var marker18 = new L.Marker(new L.latLng(31.2950983819, 121.517672025)); map.addLayer(marker18);marker18.bindPopup('上海真美妇科医院');
- var marker19 = new L.Marker(new L.latLng(31.2099218996, 121.519925885)); map.addLayer(marker19);marker19.bindPopup('上海南浦妇科医院');
- var marker20 = new L.Marker(new L.latLng(31.1805989928, 121.401338846)); map.addLayer(marker20);marker20.bindPopup('上海虹桥医院');
- var marker21 = new L.Marker(new L.latLng(31.2581820742, 121.471162024)); map.addLayer(marker21);marker21.bindPopup('上海健桥医院');
- var marker22 = new L.Marker(new L.latLng(31.2148558302, 121.451020451)); map.addLayer(marker22);marker22.bindPopup('上海博爱医院');
- var marker23 = new L.Marker(new L.latLng(31.2619073347, 121.505187272)); map.addLayer(marker23);marker23.bindPopup('上海长江医院');
- var marker24 = new L.Marker(new L.latLng(35.241712363, 113.230803965)); map.addLayer(marker24);marker24.bindPopup('解放军411医院');
- var marker25 = new L.Marker(new L.latLng(31.24916171, 121.487899486)); map.addLayer(marker25);marker25.bindPopup('上海阳光中医医院');
- var marker26 = new L.Marker(new L.latLng(31.3794209075, 121.503799307)); map.addLayer(marker26);marker26.bindPopup('上海英港泌尿外科医院');
- var marker27 = new L.Marker(new L.latLng(31.2175914679, 121.491105815)); map.addLayer(marker27);marker27.bindPopup('上海阿波罗男子医院');
- var marker28 = new L.Marker(new L.latLng(31.2533911006, 121.458044212)); map.addLayer(marker28);marker28.bindPopup('上海玫瑰女子医院');
- var marker29 = new L.Marker(new L.latLng(31.2427255688, 121.448039963)); map.addLayer(marker29);marker29.bindPopup('上海康新医院');
- var marker30 = new L.Marker(new L.latLng(31.3777109397, 121.258423473)); map.addLayer(marker30);marker30.bindPopup('上海圣爱医院');
- var marker31 = new L.Marker(new L.latLng(31.1674187127, 121.112041145)); map.addLayer(marker31);marker31.bindPopup('上海同德医院');
- var marker32 = new L.Marker(new L.latLng(31.2084506492, 121.702832186)); map.addLayer(marker32);marker32.bindPopup('上海安平医院');
- var marker33 = new L.Marker(new L.latLng(29.8753924721, 121.598000852)); map.addLayer(marker33);marker33.bindPopup('江东泌尿外科医院');
- var marker34 = new L.Marker(new L.latLng(31.24916171, 121.487899486)); map.addLayer(marker34);marker34.bindPopup('上海九州泌尿医院');
- var marker35 = new L.Marker(new L.latLng(31.1658369242, 121.12175863)); map.addLayer(marker35);marker35.bindPopup('上海青城医院');
- var marker36 = new L.Marker(new L.latLng(31.0115544912, 121.236188786)); map.addLayer(marker36);marker36.bindPopup('上海博大医院');
- var marker37 = new L.Marker(new L.latLng(31.3790029357, 121.241782392)); map.addLayer(marker37);marker37.bindPopup('上海中亚医院');
- var marker38 = new L.Marker(new L.latLng(39.9315415312, 116.422766229)); map.addLayer(marker38);marker38.bindPopup('北京华美美莱整形医院');
- var marker39 = new L.Marker(new L.latLng(39.9299857781, 116.395645038)); map.addLayer(marker39);marker39.bindPopup('北京俪人女子医院');
- var marker40 = new L.Marker(new L.latLng(39.9413466724, 116.402724093)); map.addLayer(marker40);marker40.bindPopup('北京北海医院');
- var marker41 = new L.Marker(new L.latLng(39.9391597432, 116.390954585)); map.addLayer(marker41);marker41.bindPopup('北京前海股骨头医院');
- var marker42 = new L.Marker(new L.latLng(40.1485183588, 117.128578226)); map.addLayer(marker42);marker42.bindPopup('北京市慧慈医院');
- var marker43 = new L.Marker(new L.latLng(39.8979149089, 116.48373216)); map.addLayer(marker43);marker43.bindPopup('北京五洲女子医院');
- var marker44 = new L.Marker(new L.latLng(39.9299857781, 116.395645038)); map.addLayer(marker44);marker44.bindPopup('北京圣保罗男子医院');
- var marker45 = new L.Marker(new L.latLng(39.8899485875, 116.48584075)); map.addLayer(marker45);marker45.bindPopup('北京恒安中医院');
- var marker46 = new L.Marker(new L.latLng(39.9202839415, 116.484806093)); map.addLayer(marker46);marker46.bindPopup('北京建国医院');
- var marker47 = new L.Marker(new L.latLng(39.9556239595, 116.472504683)); map.addLayer(marker47);marker47.bindPopup('北京国际医疗中心');
- var marker48 = new L.Marker(new L.latLng(39.9244053453, 116.442028475)); map.addLayer(marker48);marker48.bindPopup('北京天伦不孕不育医院');
- var marker49 = new L.Marker(new L.latLng(39.8927368193, 116.468710798)); map.addLayer(marker49);marker49.bindPopup('北京美联臣医疗美容医院');
- var marker50 = new L.Marker(new L.latLng(39.9299857781, 116.395645038)); map.addLayer(marker50);marker50.bindPopup('北京慧中医院');
- var marker51 = new L.Marker(new L.latLng(39.936813744, 116.374110768)); map.addLayer(marker51);marker51.bindPopup('北京阳光丽人妇科医院');
- var marker52 = new L.Marker(new L.latLng(39.8899485875, 116.48584075)); map.addLayer(marker52);marker52.bindPopup('北京恒安中医院');
- var marker53 = new L.Marker(new L.latLng(40.0145106263, 116.372020722)); map.addLayer(marker53);marker53.bindPopup('北京京城皮肤病医院');
- var marker54 = new L.Marker(new L.latLng(40.0350053311, 116.356769351)); map.addLayer(marker54);marker54.bindPopup('北京京北医院');
- var marker55 = new L.Marker(new L.latLng(39.8633178281, 116.458393731)); map.addLayer(marker55);marker55.bindPopup('北京瑞京糖尿病医院');
- var marker56 = new L.Marker(new L.latLng(39.9299857781, 116.395645038)); map.addLayer(marker56);marker56.bindPopup('北京众安康中医骨科');
- var marker57 = new L.Marker(new L.latLng(39.965710832, 116.437774668)); map.addLayer(marker57);marker57.bindPopup('北京玛丽妇婴医院');
- var marker58 = new L.Marker(new L.latLng(40.0296325811, 116.42494717)); map.addLayer(marker58);marker58.bindPopup('北京麦瑞骨科医院');
- var marker59 = new L.Marker(new L.latLng(39.8869705325, 116.38210636)); map.addLayer(marker59);marker59.bindPopup('北京健宫医院');
- var marker60 = new L.Marker(new L.latLng(31.2865872519, 120.60551707)); map.addLayer(marker60);marker60.bindPopup('苏州东吴医院');
- var marker61 = new L.Marker(new L.latLng(31.317987368, 120.619907115)); map.addLayer(marker61);marker61.bindPopup('苏州华美美莱整形医院');
- var marker62 = new L.Marker(new L.latLng(31.3763563033, 120.987217739)); map.addLayer(marker62);marker62.bindPopup('昆山虹桥医院');
- var marker63 = new L.Marker(new L.latLng(31.6626396523, 120.751417008)); map.addLayer(marker63);marker63.bindPopup('常熟东方妇科医院');
- var marker64 = new L.Marker(new L.latLng(31.6694460478, 120.831485965)); map.addLayer(marker64);marker64.bindPopup('常熟仁爱医院');
- var marker65 = new L.Marker(new L.latLng(31.3198120929, 120.962138877)); map.addLayer(marker65);marker65.bindPopup('昆山阳光医院');
- var marker66 = new L.Marker(new L.latLng(31.3027650336, 120.565333874)); map.addLayer(marker66);marker66.bindPopup('苏州圣爱医院');
- var marker67 = new L.Marker(new L.latLng(31.317987368, 120.619907115)); map.addLayer(marker67);marker67.bindPopup('苏州新医科');
- var marker68 = new L.Marker(new L.latLng(39.1439299033, 117.210813092)); map.addLayer(marker68);marker68.bindPopup('天津坤如玛丽医院');
- var marker69 = new L.Marker(new L.latLng(39.1378753181, 117.232443511)); map.addLayer(marker69);marker69.bindPopup('天津华北医院');
- var marker70 = new L.Marker(new L.latLng(39.1439299033, 117.210813092)); map.addLayer(marker70);marker70.bindPopup('天津华厦医院');
- var marker71 = new L.Marker(new L.latLng(39.1162498814, 117.243973051)); map.addLayer(marker71);marker71.bindPopup('天津丽人女子医院');
- var marker72 = new L.Marker(new L.latLng(39.1339384322, 117.169588764)); map.addLayer(marker72);marker72.bindPopup('天津华山医院');
- var marker73 = new L.Marker(new L.latLng(39.1367477646, 117.158564769)); map.addLayer(marker73);marker73.bindPopup('天津怡泰生殖专科医院');
- var marker74 = new L.Marker(new L.latLng(39.1409043627, 117.209657871)); map.addLayer(marker74);marker74.bindPopup('天津现代女子医院');
- var marker75 = new L.Marker(new L.latLng(39.1367460278, 117.158562663)); map.addLayer(marker75);marker75.bindPopup('天津怡泰医院');
- var marker76 = new L.Marker(new L.latLng(39.0981009162, 117.226502061)); map.addLayer(marker76);marker76.bindPopup('天津乐园医院');
- var marker77 = new L.Marker(new L.latLng(39.1825036991, 117.187060609)); map.addLayer(marker77);marker77.bindPopup('天津长庚耳鼻喉医院');
- var marker78 = new L.Marker(new L.latLng(23.2025787244, 113.393441355)); map.addLayer(marker78);marker78.bindPopup('广州华美美莱整形医院');
- var marker79 = new L.Marker(new L.latLng(23.1628980386, 113.315100283)); map.addLayer(marker79);marker79.bindPopup('广州现代医院');
- var marker80 = new L.Marker(new L.latLng(23.1388517796, 113.342727568)); map.addLayer(marker80);marker80.bindPopup('广州长安医院');
- var marker81 = new L.Marker(new L.latLng(23.1772158435, 113.255657457)); map.addLayer(marker81);marker81.bindPopup('广州益寿医院');
- var marker82 = new L.Marker(new L.latLng(23.1600483462, 113.305760898)); map.addLayer(marker82);marker82.bindPopup('广州利德医院');
- var marker83 = new L.Marker(new L.latLng(22.9460241194, 113.373746995)); map.addLayer(marker83);marker83.bindPopup('番禺东方俪人医院');
- var marker84 = new L.Marker(new L.latLng(22.9345907958, 113.41679953)); map.addLayer(marker84);marker84.bindPopup('番禺玛莉亚肛肠医院');
- var marker85 = new L.Marker(new L.latLng(23.1438794736, 113.32143579)); map.addLayer(marker85);marker85.bindPopup('广州圣亚泌尿外科医院');
- var marker86 = new L.Marker(new L.latLng(23.1050036378, 113.243244516)); map.addLayer(marker86);marker86.bindPopup('广州女子医院');
- var marker87 = new L.Marker(new L.latLng(23.0973185762, 113.319519394)); map.addLayer(marker87);marker87.bindPopup('广州市江南医院');
- var marker88 = new L.Marker(new L.latLng(23.1097346877, 113.561885328)); map.addLayer(marker88);marker88.bindPopup('广州济慈医院');
- var marker89 = new L.Marker(new L.latLng(23.1391200952, 113.303426929)); map.addLayer(marker89);marker89.bindPopup('广东民安医院');
- var marker90 = new L.Marker(new L.latLng(23.1261032618, 113.421265624)); map.addLayer(marker90);marker90.bindPopup('广州长泰医院');
- var marker91 = new L.Marker(new L.latLng(23.1277051385, 113.625513553)); map.addLayer(marker91);marker91.bindPopup('广州健安医院');
- var marker92 = new L.Marker(new L.latLng(23.1372696191, 113.318595079)); map.addLayer(marker92);marker92.bindPopup('广州458医院');
- var marker93 = new L.Marker(new L.latLng(23.4028902023, 113.212505139)); map.addLayer(marker93);marker93.bindPopup('广州花都人爱医院');
- var marker94 = new L.Marker(new L.latLng(23.1789246103, 113.26435629)); map.addLayer(marker94);marker94.bindPopup('广州远东美容医院');
- var marker95 = new L.Marker(new L.latLng(22.2324360479, 113.567383547)); map.addLayer(marker95);marker95.bindPopup('珠海惠爱医院');
- var marker96 = new L.Marker(new L.latLng(22.2519473079, 113.580253042)); map.addLayer(marker96);marker96.bindPopup('珠海九龙医院');
- var marker97 = new L.Marker(new L.latLng(22.2551242056, 113.593622559)); map.addLayer(marker97);marker97.bindPopup('珠海阳光医院');
- var marker98 = new L.Marker(new L.latLng(23.080679668, 114.409432163)); map.addLayer(marker98);marker98.bindPopup('惠州仁德妇科医院');
- var marker99 = new L.Marker(new L.latLng(22.7801354184, 114.475652011)); map.addLayer(marker99);marker99.bindPopup('惠阳女子医院');
- var marker100 = new L.Marker(new L.latLng(23.0809055054, 114.417891063)); map.addLayer(marker100);marker100.bindPopup('惠州东江泌尿专科医院');
- var marker101 = new L.Marker(new L.latLng(22.5182349839, 113.401351377)); map.addLayer(marker101);marker101.bindPopup('中山现代妇科医院');
- var marker102 = new L.Marker(new L.latLng(22.5577787113, 113.464666471)); map.addLayer(marker102);marker102.bindPopup('中山市国丹中医院');
- var marker103 = new L.Marker(new L.latLng(22.5094697108, 113.384902745)); map.addLayer(marker103);marker103.bindPopup('中山阳光医院');
- var marker104 = new L.Marker(new L.latLng(23.3781908469, 116.737825564)); map.addLayer(marker104);marker104.bindPopup('汕头妇产医院');
- var marker105 = new L.Marker(new L.latLng(23.0651227876, 113.8072644)); map.addLayer(marker105);marker105.bindPopup('东莞现代妇科医院');
- var marker106 = new L.Marker(new L.latLng(22.9728202154, 114.024010818)); map.addLayer(marker106);marker106.bindPopup('东莞常平医院');
- var marker107 = new L.Marker(new L.latLng(22.8186741162, 114.111051543)); map.addLayer(marker107);marker107.bindPopup('东莞康桥妇科医院');
- var marker108 = new L.Marker(new L.latLng(22.8000645063, 113.788656681)); map.addLayer(marker108);marker108.bindPopup('东莞乌沙医院');
- var marker109 = new L.Marker(new L.latLng(22.8200721079, 113.70182976)); map.addLayer(marker109);marker109.bindPopup('东莞万福妇产医院');
- var marker110 = new L.Marker(new L.latLng(22.9660611406, 113.920029469)); map.addLayer(marker110);marker110.bindPopup('东莞南华妇科医院');
- var marker111 = new L.Marker(new L.latLng(23.0469971046, 113.784919572)); map.addLayer(marker111);marker111.bindPopup('东莞东方泌尿专科医院');
- var marker112 = new L.Marker(new L.latLng(22.5977979296, 113.075726724)); map.addLayer(marker112);marker112.bindPopup('江门玛丽妇科医院');
- var marker113 = new L.Marker(new L.latLng(22.5751167835, 113.078125341)); map.addLayer(marker113);marker113.bindPopup('江门福康医院');
- var marker114 = new L.Marker(new L.latLng(23.0616857809, 112.498427518)); map.addLayer(marker114);marker114.bindPopup('肇庆福康医院');
- var marker115 = new L.Marker(new L.latLng(23.1750344221, 112.893323596)); map.addLayer(marker115);marker115.bindPopup('佛山三水女子医院');
- var marker116 = new L.Marker(new L.latLng(22.8485100848, 113.187029877)); map.addLayer(marker116);marker116.bindPopup('顺德广济中医院');
- var marker117 = new L.Marker(new L.latLng(22.8186809568, 113.245449805)); map.addLayer(marker117);marker117.bindPopup('顺德新世纪泌尿医院');
- var marker118 = new L.Marker(new L.latLng(22.9953650379, 113.204207673)); map.addLayer(marker118);marker118.bindPopup('顺德庄头医院');
- var marker119 = new L.Marker(new L.latLng(22.8477337831, 113.246506151)); map.addLayer(marker119);marker119.bindPopup('顺德阳光康复医院');
- var marker120 = new L.Marker(new L.latLng(22.5460535462, 114.025973657)); map.addLayer(marker120);marker120.bindPopup('深圳美莱美容医院');
- var marker121 = new L.Marker(new L.latLng(22.5433757809, 114.090801746)); map.addLayer(marker121);marker121.bindPopup('深圳福华中西医结合医院');
- var marker122 = new L.Marker(new L.latLng(22.5584188212, 114.111408923)); map.addLayer(marker122);marker122.bindPopup('深圳博爱医院');
- var marker123 = new L.Marker(new L.latLng(22.553222058, 114.114174974)); map.addLayer(marker123);marker123.bindPopup('深圳曙光医院');
- var marker124 = new L.Marker(new L.latLng(22.5498291899, 114.130351876)); map.addLayer(marker124);marker124.bindPopup('深圳远东妇儿科医院');
- var marker125 = new L.Marker(new L.latLng(22.5262513226, 114.047895295)); map.addLayer(marker125);marker125.bindPopup('深圳仁爱医院');
- var marker126 = new L.Marker(new L.latLng(22.5463456112, 113.928604257)); map.addLayer(marker126);marker126.bindPopup('深圳和美妇儿科医院');
- var marker127 = new L.Marker(new L.latLng(22.5911143824, 114.124541472)); map.addLayer(marker127);marker127.bindPopup('深圳仁康医院');
- var marker128 = new L.Marker(new L.latLng(22.6021396286, 114.132579386)); map.addLayer(marker128);marker128.bindPopup('深圳罗岗医院');
- var marker129 = new L.Marker(new L.latLng(22.6572031598, 114.085078749)); map.addLayer(marker129);marker129.bindPopup('深圳雪象医院');
- var marker130 = new L.Marker(new L.latLng(22.6350529967, 114.044512453)); map.addLayer(marker130);marker130.bindPopup('深圳健安医院');
- var marker131 = new L.Marker(new L.latLng(22.6993038788, 114.351374482)); map.addLayer(marker131);marker131.bindPopup('深圳华南妇科医院');
- var marker132 = new L.Marker(new L.latLng(22.5460535462, 114.025973657)); map.addLayer(marker132);marker132.bindPopup('深圳国瑞泌尿外科医院');
- var marker133 = new L.Marker(new L.latLng(22.5460535462, 114.025973657)); map.addLayer(marker133);marker133.bindPopup('深圳韩美医疗美容医院');
- var marker134 = new L.Marker(new L.latLng(22.7068833343, 114.337231845)); map.addLayer(marker134);marker134.bindPopup('深圳健丰医院');
- var marker135 = new L.Marker(new L.latLng(22.6646264466, 114.018996335)); map.addLayer(marker135);marker135.bindPopup('深圳龙济医院');
- var marker136 = new L.Marker(new L.latLng(22.5814611101, 113.878350262)); map.addLayer(marker136);marker136.bindPopup('深圳同仁妇科医院');
- var marker137 = new L.Marker(new L.latLng(22.5527289099, 114.144227852)); map.addLayer(marker137);marker137.bindPopup('深圳凤凰医院');
- var marker138 = new L.Marker(new L.latLng(22.5466727231, 114.118186784)); map.addLayer(marker138);marker138.bindPopup('深圳阳光医院');
- var marker139 = new L.Marker(new L.latLng(25.0491531005, 102.714601139)); map.addLayer(marker139);marker139.bindPopup('昆明华美美莱整形医院');
- var marker140 = new L.Marker(new L.latLng(25.0610427363, 102.724335447)); map.addLayer(marker140);marker140.bindPopup('云南玛莉亚女子医院');
- var marker141 = new L.Marker(new L.latLng(25.0605514807, 102.724586245)); map.addLayer(marker141);marker141.bindPopup('云南玛莉亚医院');
- var marker142 = new L.Marker(new L.latLng(25.0402877779, 102.706180164)); map.addLayer(marker142);marker142.bindPopup('昆明西昌路医院');
- var marker143 = new L.Marker(new L.latLng(25.0491531005, 102.714601139)); map.addLayer(marker143);marker143.bindPopup('昆明阳光医院');
- var marker144 = new L.Marker(new L.latLng(25.0729426605, 102.715231839)); map.addLayer(marker144);marker144.bindPopup('昆明仁爱医院');
- var marker145 = new L.Marker(new L.latLng(25.0491531005, 102.714601139)); map.addLayer(marker145);marker145.bindPopup('昆明九州医院');
- var marker146 = new L.Marker(new L.latLng(35.241712363, 113.230803965)); map.addLayer(marker146);marker146.bindPopup('解放军478医院妇产中心');
- var marker147 = new L.Marker(new L.latLng(25.0491531005, 102.714601139)); map.addLayer(marker147);marker147.bindPopup('昆明九州泌尿医院');
- var marker148 = new L.Marker(new L.latLng(24.3704471344, 102.545067892)); map.addLayer(marker148);marker148.bindPopup('玉溪九州医院');
- var marker149 = new L.Marker(new L.latLng(25.6646685406, 104.261582122)); map.addLayer(marker149);marker149.bindPopup('富源阳光医院');
- var marker150 = new L.Marker(new L.latLng(25.5207581429, 103.782538888)); map.addLayer(marker150);marker150.bindPopup('曲靖九州医院');
- var marker151 = new L.Marker(new L.latLng(29.0308356586, 106.662187633)); map.addLayer(marker151);marker151.bindPopup('重庆华美美莱整形医院');
- var marker152 = new L.Marker(new L.latLng(31.0656574167, 108.430714338)); map.addLayer(marker152);marker152.bindPopup('重庆华山中医乳腺病医院');
- var marker153 = new L.Marker(new L.latLng(29.5446061089, 106.530635013)); map.addLayer(marker153);marker153.bindPopup('重庆坤如玛丽医院');
- var marker154 = new L.Marker(new L.latLng(29.5355293884, 106.579590595)); map.addLayer(marker154);marker154.bindPopup('重庆现代女子医院');
- var marker155 = new L.Marker(new L.latLng(29.5446061089, 106.530635013)); map.addLayer(marker155);marker155.bindPopup('重庆都市丽人医院');
- var marker156 = new L.Marker(new L.latLng(30.7100541844, 108.413438637)); map.addLayer(marker156);marker156.bindPopup('重庆万州博生医院');
- var marker157 = new L.Marker(new L.latLng(30.8117134007, 108.386686123)); map.addLayer(marker157);marker157.bindPopup('重庆万州美妇产医院');
- var marker158 = new L.Marker(new L.latLng(29.7169641928, 107.402665356)); map.addLayer(marker158);marker158.bindPopup('涪陵博生和美妇产医院');
- var marker159 = new L.Marker(new L.latLng(29.5592203592, 106.465390429)); map.addLayer(marker159);marker159.bindPopup('重庆市爱德华医院');
- var marker160 = new L.Marker(new L.latLng(29.5335229877, 106.520423911)); map.addLayer(marker160);marker160.bindPopup('重庆五洲女子医院');
- var marker161 = new L.Marker(new L.latLng(29.528519492, 106.444352817)); map.addLayer(marker161);marker161.bindPopup('第三军医大学重庆新桥医院');
- var marker162 = new L.Marker(new L.latLng(29.5876251291, 106.534984429)); map.addLayer(marker162);marker162.bindPopup('重庆阳光医院');
- var marker163 = new L.Marker(new L.latLng(29.5859556325, 106.527731057)); map.addLayer(marker163);marker163.bindPopup('重庆生殖健康医院');
- var marker164 = new L.Marker(new L.latLng(29.5459107856, 106.529674506)); map.addLayer(marker164);marker164.bindPopup('重庆红楼医院');
- var marker165 = new L.Marker(new L.latLng(23.0996278536, 113.341081821)); map.addLayer(marker165);marker165.bindPopup('解放军第324医院');
- var marker166 = new L.Marker(new L.latLng(29.7007367223, 107.406627513)); map.addLayer(marker166);marker166.bindPopup('涪陵三峡医院');
- var marker167 = new L.Marker(new L.latLng(30.6665222455, 107.789044753)); map.addLayer(marker167);marker167.bindPopup('重庆红十字会医院');
- var marker168 = new L.Marker(new L.latLng(30.6364340027, 103.67073373)); map.addLayer(marker168);marker168.bindPopup('成都长征医院');
- var marker169 = new L.Marker(new L.latLng(30.6591220844, 104.094280066)); map.addLayer(marker169);marker169.bindPopup('成都博爱医院');
- var marker170 = new L.Marker(new L.latLng(30.6763687115, 104.072980384)); map.addLayer(marker170);marker170.bindPopup('成都丽人女子医院');
- var marker171 = new L.Marker(new L.latLng(30.6830687175, 104.146230005)); map.addLayer(marker171);marker171.bindPopup('成都华美美莱整形医院');
- var marker172 = new L.Marker(new L.latLng(29.5806778088, 103.771137954)); map.addLayer(marker172);marker172.bindPopup('四川华美紫馨医学美容医院');
- var marker173 = new L.Marker(new L.latLng(30.6138358951, 104.086944976)); map.addLayer(marker173);marker173.bindPopup('成都安琪儿妇产医院');
- var marker174 = new L.Marker(new L.latLng(30.6783630498, 104.064956531)); map.addLayer(marker174);marker174.bindPopup('成都蜀都乳腺医院');
- var marker175 = new L.Marker(new L.latLng(30.9971252219, 103.635339973)); map.addLayer(marker175);marker175.bindPopup('成都糖尿病专科医院');
- var marker176 = new L.Marker(new L.latLng(30.6650053589, 104.046632342)); map.addLayer(marker176);marker176.bindPopup('成都曙光男科医院');
- var marker177 = new L.Marker(new L.latLng(30.6799428454, 104.067923463)); map.addLayer(marker177);marker177.bindPopup('成都玛利亚妇产医院');
- var marker178 = new L.Marker(new L.latLng(30.6599231532, 104.047694545)); map.addLayer(marker178);marker178.bindPopup('成都欧亚男科医院');
- var marker179 = new L.Marker(new L.latLng(30.6444328936, 104.031213268)); map.addLayer(marker179);marker179.bindPopup('四川阳光妇科医院');
- var marker180 = new L.Marker(new L.latLng(30.6761835953, 104.083160521)); map.addLayer(marker180);marker180.bindPopup('成都康新妇科医院');
- var marker181 = new L.Marker(new L.latLng(30.6799428454, 104.067923463)); map.addLayer(marker181);marker181.bindPopup('成都济民女子医院');
- var marker182 = new L.Marker(new L.latLng(30.9971252219, 103.635339973)); map.addLayer(marker182);marker182.bindPopup('成都糖尿病专科医院');
- var marker183 = new L.Marker(new L.latLng(30.6650053589, 104.046632342)); map.addLayer(marker183);marker183.bindPopup('成都曙光男科医院');
- var marker184 = new L.Marker(new L.latLng(23.0996278536, 113.341081821)); map.addLayer(marker184);marker184.bindPopup('解放军第三十七医院');
- var marker185 = new L.Marker(new L.latLng(27.726403896, 106.941267799)); map.addLayer(marker185);marker185.bindPopup('遵义女子医院');
- var marker186 = new L.Marker(new L.latLng(27.8919373992, 102.262577526)); map.addLayer(marker186);marker186.bindPopup('凉山妇产医院');
- var marker187 = new L.Marker(new L.latLng(27.8923929037, 102.259590803)); map.addLayer(marker187);marker187.bindPopup('凉山男科医院');
- var marker188 = new L.Marker(new L.latLng(30.8104860378, 106.09350061)); map.addLayer(marker188);marker188.bindPopup('南充解放军51医院');
- var marker189 = new L.Marker(new L.latLng(30.367480938, 102.899159724)); map.addLayer(marker189);marker189.bindPopup('武警四川总队医院');
- var marker190 = new L.Marker(new L.latLng(26.0471254966, 119.330221107)); map.addLayer(marker190);marker190.bindPopup('福州华美美莱整形医院');
- var marker191 = new L.Marker(new L.latLng(26.086401588, 119.316969841)); map.addLayer(marker191);marker191.bindPopup('福州鼓楼医院');
- var marker192 = new L.Marker(new L.latLng(26.1144611367, 119.301446502)); map.addLayer(marker192);marker192.bindPopup('福州现代妇产医院');
- var marker193 = new L.Marker(new L.latLng(26.1070965121, 119.29445773)); map.addLayer(marker193);marker193.bindPopup('福州左海医院');
- var marker194 = new L.Marker(new L.latLng(26.6448542727, 119.546685516)); map.addLayer(marker194);marker194.bindPopup('福州总医院第二附属医院');
- var marker195 = new L.Marker(new L.latLng(25.6381205771, 119.377547013)); map.addLayer(marker195);marker195.bindPopup('福清阳光女子医院');
- var marker196 = new L.Marker(new L.latLng(26.0613021435, 119.34624544)); map.addLayer(marker196);marker196.bindPopup('福州东南女子医院');
- var marker197 = new L.Marker(new L.latLng(26.0777499958, 119.359668011)); map.addLayer(marker197);marker197.bindPopup('福州福兴妇产医院');
- var marker198 = new L.Marker(new L.latLng(26.0788759833, 119.365911773)); map.addLayer(marker198);marker198.bindPopup('福州誉盛医院');
- var marker199 = new L.Marker(new L.latLng(30.0196235146, 122.110161463)); map.addLayer(marker199);marker199.bindPopup('舟山现代妇科医院');
- var marker200 = new L.Marker(new L.latLng(30.0360103026, 122.169872098)); map.addLayer(marker200);marker200.bindPopup('舟山市千岛医院妇产科');
- var marker201 = new L.Marker(new L.latLng(24.4891138732, 118.129608844)); map.addLayer(marker201);marker201.bindPopup('厦门登特口腔医院');
- var marker202 = new L.Marker(new L.latLng(24.4892306125, 118.103886046)); map.addLayer(marker202);marker202.bindPopup('厦门友好妇科');
- var marker203 = new L.Marker(new L.latLng(24.5127763702, 118.124167889)); map.addLayer(marker203);marker203.bindPopup('厦门湖里康乐门诊部');
- var marker204 = new L.Marker(new L.latLng(25.4306159677, 119.011027555)); map.addLayer(marker204);marker204.bindPopup('莆田丽人妇科医院');
- var marker205 = new L.Marker(new L.latLng(25.315415212, 119.109644959)); map.addLayer(marker205);marker205.bindPopup('莆田盛兴医院');
- var marker206 = new L.Marker(new L.latLng(25.4484501367, 119.077730964)); map.addLayer(marker206);marker206.bindPopup('莆田中西医肛肠医院');
- var marker207 = new L.Marker(new L.latLng(29.8718276309, 121.563667925)); map.addLayer(marker207);marker207.bindPopup('宁波美莱整形美容医院');
- var marker208 = new L.Marker(new L.latLng(29.8852589659, 121.579005973)); map.addLayer(marker208);marker208.bindPopup('宁波博爱医院');
- var marker209 = new L.Marker(new L.latLng(29.8852589659, 121.579005973)); map.addLayer(marker209);marker209.bindPopup('宁波虹桥医院');
- var marker210 = new L.Marker(new L.latLng(29.8659555293, 121.556395443)); map.addLayer(marker210);marker210.bindPopup('宁波欧亚男科医院');
- var marker211 = new L.Marker(new L.latLng(29.8852589659, 121.579005973)); map.addLayer(marker211);marker211.bindPopup('宁波甬城医院');
- var marker212 = new L.Marker(new L.latLng(30.1863851263, 121.244861493)); map.addLayer(marker212);marker212.bindPopup('慈溪圣爱医院');
- var marker213 = new L.Marker(new L.latLng(30.2700656805, 120.213393342)); map.addLayer(marker213);marker213.bindPopup('杭州新东方妇产科医院');
- var marker214 = new L.Marker(new L.latLng(30.2441441061, 120.199537955)); map.addLayer(marker214);marker214.bindPopup('杭州玛莉亚妇女医院');
- var marker215 = new L.Marker(new L.latLng(30.2530497114, 120.190715967)); map.addLayer(marker215);marker215.bindPopup('杭州虹桥医院');
- var marker216 = new L.Marker(new L.latLng(30.2592444615, 120.219375416)); map.addLayer(marker216);marker216.bindPopup('杭州建国医院');
- var marker217 = new L.Marker(new L.latLng(30.2705809932, 120.109595523)); map.addLayer(marker217);marker217.bindPopup('杭州天目山医院');
- var marker218 = new L.Marker(new L.latLng(30.1544139209, 120.286604734)); map.addLayer(marker218);marker218.bindPopup('杭州萧山九龙男科医院');
- var marker219 = new L.Marker(new L.latLng(30.2868464565, 120.214525827)); map.addLayer(marker219);marker219.bindPopup('杭州广仁医院');
- var marker220 = new L.Marker(new L.latLng(30.2761698245, 120.189027101)); map.addLayer(marker220);marker220.bindPopup('杭州阿波罗男子医院');
- var marker221 = new L.Marker(new L.latLng(30.3156167262, 120.128070381)); map.addLayer(marker221);marker221.bindPopup('杭州和睦医院');
- var marker222 = new L.Marker(new L.latLng(30.2592444615, 120.219375416)); map.addLayer(marker222);marker222.bindPopup('杭州真爱医院');
- var marker223 = new L.Marker(new L.latLng(30.8779251557, 120.137243163)); map.addLayer(marker223);marker223.bindPopup('湖州阳光女子医院');
- var marker224 = new L.Marker(new L.latLng(24.6079897544, 118.677695499)); map.addLayer(marker224);marker224.bindPopup('泉州华美美莱整形医院');
- var marker225 = new L.Marker(new L.latLng(25.1262950584, 118.914837453)); map.addLayer(marker225);marker225.bindPopup('泉州南亚华侨医院');
- var marker226 = new L.Marker(new L.latLng(24.8899459554, 118.604491135)); map.addLayer(marker226);marker226.bindPopup('泉州新阳光女子医院');
- var marker227 = new L.Marker(new L.latLng(24.9140742313, 118.615421088)); map.addLayer(marker227);marker227.bindPopup('泉州坤如玛丽医院');
- var marker228 = new L.Marker(new L.latLng(24.9155414648, 118.615650156)); map.addLayer(marker228);marker228.bindPopup('泉州南亚医院');
- var marker229 = new L.Marker(new L.latLng(29.1183082135, 119.684694434)); map.addLayer(marker229);marker229.bindPopup('浙江金华博康生殖医院');
- var marker230 = new L.Marker(new L.latLng(30.7711781649, 120.701468886)); map.addLayer(marker230);marker230.bindPopup('浙江新安国际医院');
- var marker231 = new L.Marker(new L.latLng(30.7434431318, 120.778559704)); map.addLayer(marker231);marker231.bindPopup('嘉兴曙光中西医结合医院');
- var marker232 = new L.Marker(new L.latLng(30.518718266, 120.707930545)); map.addLayer(marker232);marker232.bindPopup('嘉兴博爱医院');
- var marker233 = new L.Marker(new L.latLng(28.506215777, 121.372843872)); map.addLayer(marker233);marker233.bindPopup('温岭和平医院');
- var marker234 = new L.Marker(new L.latLng(27.7857032856, 120.660836592)); map.addLayer(marker234);marker234.bindPopup('瑞安华东医院');
- var marker235 = new L.Marker(new L.latLng(28.0190936695, 120.669094895)); map.addLayer(marker235);marker235.bindPopup('温州长征医院');
- var marker236 = new L.Marker(new L.latLng(28.0131963331, 120.701423742)); map.addLayer(marker236);marker236.bindPopup('温州协和医院');
- var marker237 = new L.Marker(new L.latLng(27.9875129906, 120.671854907)); map.addLayer(marker237);marker237.bindPopup('温州建国医院');
- var marker238 = new L.Marker(new L.latLng(27.9883175917, 120.694539668)); map.addLayer(marker238);marker238.bindPopup('温州红旗医院');
- var marker239 = new L.Marker(new L.latLng(27.9954886504, 120.735275307)); map.addLayer(marker239);marker239.bindPopup('温州爱尔五官科医院');
- var marker240 = new L.Marker(new L.latLng(25.0749672954, 117.034046045)); map.addLayer(marker240);marker240.bindPopup('龙岩女子医院');
- var marker241 = new L.Marker(new L.latLng(25.0927127594, 117.033138487)); map.addLayer(marker241);marker241.bindPopup('龙岩阳光医院');
- var marker242 = new L.Marker(new L.latLng(36.6604835762, 117.055445943)); map.addLayer(marker242);marker242.bindPopup('济南美莱整形医院');
- var marker243 = new L.Marker(new L.latLng(36.6827847272, 117.024967066)); map.addLayer(marker243);marker243.bindPopup('济南乳腺医院');
- var marker244 = new L.Marker(new L.latLng(36.6790297298, 117.01977001)); map.addLayer(marker244);marker244.bindPopup('济南坤如玛丽医院');
- var marker245 = new L.Marker(new L.latLng(36.6904950629, 117.005821797)); map.addLayer(marker245);marker245.bindPopup('济南华夏医院');
- var marker246 = new L.Marker(new L.latLng(36.6827847272, 117.024967066)); map.addLayer(marker246);marker246.bindPopup('济南整形美容医院');
- var marker247 = new L.Marker(new L.latLng(36.6552063245, 116.998749273)); map.addLayer(marker247);marker247.bindPopup('济南妇科医院');
- var marker248 = new L.Marker(new L.latLng(36.6636663929, 116.989771832)); map.addLayer(marker248);marker248.bindPopup('山东红十字会医院');
- var marker249 = new L.Marker(new L.latLng(36.6419239755, 117.004059204)); map.addLayer(marker249);marker249.bindPopup('济南骨科医院');
- var marker250 = new L.Marker(new L.latLng(36.6657750178, 117.023357932)); map.addLayer(marker250);marker250.bindPopup('济南阳光女子医院');
- var marker251 = new L.Marker(new L.latLng(36.8516684847, 119.404795096)); map.addLayer(marker251);marker251.bindPopup('潍坊博爱医院');
- var marker252 = new L.Marker(new L.latLng(36.7161148731, 119.142633823)); map.addLayer(marker252);marker252.bindPopup('潍坊长安医院');
- var marker253 = new L.Marker(new L.latLng(36.7194583778, 119.158931428)); map.addLayer(marker253);marker253.bindPopup('潍坊和平医院');
- var marker254 = new L.Marker(new L.latLng(36.0707031126, 120.325633685)); map.addLayer(marker254);marker254.bindPopup('青岛妇婴医院');
- var marker255 = new L.Marker(new L.latLng(36.0934073063, 120.382662654)); map.addLayer(marker255);marker255.bindPopup('青岛玛丽妇产医院');
- var marker256 = new L.Marker(new L.latLng(36.1052149013, 120.384428184)); map.addLayer(marker256);marker256.bindPopup('青岛长征院');
- var marker257 = new L.Marker(new L.latLng(36.1052149013, 120.384428184)); map.addLayer(marker257);marker257.bindPopup('青岛曙光男科医院');
- var marker258 = new L.Marker(new L.latLng(36.0893946839, 120.417337695)); map.addLayer(marker258);marker258.bindPopup('山东青岛曙光医院');
- var marker259 = new L.Marker(new L.latLng(36.1052149013, 120.384428184)); map.addLayer(marker259);marker259.bindPopup('青岛集美整形美容医院');
- var marker260 = new L.Marker(new L.latLng(36.159668269, 120.424157272)); map.addLayer(marker260);marker260.bindPopup('青岛新阳光医院');
- var marker261 = new L.Marker(new L.latLng(36.7234543265, 116.678253512)); map.addLayer(marker261);marker261.bindPopup('齐河阳光医院');
- var marker262 = new L.Marker(new L.latLng(37.5287870813, 122.093958366)); map.addLayer(marker262);marker262.bindPopup('威海现代女子医院');
- var marker263 = new L.Marker(new L.latLng(36.4558295872, 115.907705568)); map.addLayer(marker263);marker263.bindPopup('聊城东昌府三医院');
- var marker264 = new L.Marker(new L.latLng(36.82129632, 118.068018551)); map.addLayer(marker264);marker264.bindPopup('山东淄博金盾医院');
- var marker265 = new L.Marker(new L.latLng(36.8265426794, 118.054162247)); map.addLayer(marker265);marker265.bindPopup('淄博女子医院');
- var marker266 = new L.Marker(new L.latLng(45.7503473713, 126.673167406)); map.addLayer(marker266);marker266.bindPopup('黑龙江玛丽亚妇产医院');
- var marker267 = new L.Marker(new L.latLng(45.7508046759, 126.658606447)); map.addLayer(marker267);marker267.bindPopup('黑龙江东北医院');
- var marker268 = new L.Marker(new L.latLng(45.772780658, 126.675195485)); map.addLayer(marker268);marker268.bindPopup('黑龙江和平医院');
- var marker269 = new L.Marker(new L.latLng(45.7484166563, 126.679365269)); map.addLayer(marker269);marker269.bindPopup('黑龙江和美妇产医院');
- var marker270 = new L.Marker(new L.latLng(45.7624364669, 126.674805591)); map.addLayer(marker270);marker270.bindPopup('哈尔滨市生殖保健中心院');
- var marker271 = new L.Marker(new L.latLng(45.7835451109, 126.67799577)); map.addLayer(marker271);marker271.bindPopup('哈尔滨欧亚男科医院');
- var marker272 = new L.Marker(new L.latLng(45.7434339145, 126.629274352)); map.addLayer(marker272);marker272.bindPopup('黑龙江长庚耳鼻喉医院');
- var marker273 = new L.Marker(new L.latLng(47.3565916431, 128.047413715)); map.addLayer(marker273);marker273.bindPopup('黑龙江阳光女子医院');
- var marker274 = new L.Marker(new L.latLng(45.7094486153, 126.644028163)); map.addLayer(marker274);marker274.bindPopup('黑龙江省武警黄金医院妇科');
- var marker275 = new L.Marker(new L.latLng(43.9003409238, 125.31919011)); map.addLayer(marker275);marker275.bindPopup('长春同济医院');
- var marker276 = new L.Marker(new L.latLng(43.9432984333, 125.304029236)); map.addLayer(marker276);marker276.bindPopup('吉林总队医院');
- var marker277 = new L.Marker(new L.latLng(43.895031408, 125.343861438)); map.addLayer(marker277);marker277.bindPopup('长春长庚耳鼻喉医院');
- var marker278 = new L.Marker(new L.latLng(43.8983376071, 125.313642427)); map.addLayer(marker278);marker278.bindPopup('长春阳光女子医院');
- var marker279 = new L.Marker(new L.latLng(43.8983376071, 125.313642427)); map.addLayer(marker279);marker279.bindPopup('长春阳光口腔医院');
- var marker280 = new L.Marker(new L.latLng(43.5072301969, 124.825639112)); map.addLayer(marker280);marker280.bindPopup('四平阳光医院');
- var marker281 = new L.Marker(new L.latLng(42.9187007367, 129.523856311)); map.addLayer(marker281);marker281.bindPopup('延吉博生现代妇科医院');
- var marker282 = new L.Marker(new L.latLng(41.8454209384, 123.438335263)); map.addLayer(marker282);marker282.bindPopup('沈阳北陵医院');
- var marker283 = new L.Marker(new L.latLng(41.8086447835, 123.432790922)); map.addLayer(marker283);marker283.bindPopup('沈阳曙光男科医院');
- var marker284 = new L.Marker(new L.latLng(41.8688032626, 123.420504373)); map.addLayer(marker284);marker284.bindPopup('武警辽宁省总队医院');
- var marker285 = new L.Marker(new L.latLng(41.7991288761, 123.479185886)); map.addLayer(marker285);marker285.bindPopup('解放军沈阳463医院希美整形美容');
- var marker286 = new L.Marker(new L.latLng(38.9487099383, 121.593477781)); map.addLayer(marker286);marker286.bindPopup('大连长城妇科医院');
- var marker287 = new L.Marker(new L.latLng(38.9487099383, 121.593477781)); map.addLayer(marker287);marker287.bindPopup('大连新世纪医院');
- var marker288 = new L.Marker(new L.latLng(38.9127458874, 121.608316071)); map.addLayer(marker288);marker288.bindPopup('大连阳光医院');
- var marker289 = new L.Marker(new L.latLng(31.5837557581, 120.301547138)); map.addLayer(marker289);marker289.bindPopup('无锡玛丽亚医院');
- var marker290 = new L.Marker(new L.latLng(31.5584673345, 120.2699273)); map.addLayer(marker290);marker290.bindPopup('无锡嘉仕恒信医院');
- var marker291 = new L.Marker(new L.latLng(31.5682390778, 120.329416882)); map.addLayer(marker291);marker291.bindPopup('无锡南站医院');
- var marker292 = new L.Marker(new L.latLng(31.5669057464, 120.350737124)); map.addLayer(marker292);marker292.bindPopup('无锡虹桥医院');
- var marker293 = new L.Marker(new L.latLng(31.9029294498, 120.292577613)); map.addLayer(marker293);marker293.bindPopup('江阴东方女子医院');
- var marker294 = new L.Marker(new L.latLng(31.3622449119, 119.790265297)); map.addLayer(marker294);marker294.bindPopup('宜兴武警医院');
- var marker295 = new L.Marker(new L.latLng(31.8374254221, 120.310678967)); map.addLayer(marker295);marker295.bindPopup('江阴九龙泌尿外科医院');
- var marker296 = new L.Marker(new L.latLng(31.556064601, 120.359141243)); map.addLayer(marker296);marker296.bindPopup('无锡新区医院');
- var marker297 = new L.Marker(new L.latLng(32.0419713372, 118.809230556)); map.addLayer(marker297);marker297.bindPopup('江苏施尔美整形美容医院');
- var marker298 = new L.Marker(new L.latLng(32.0127336779, 118.789266964)); map.addLayer(marker298);marker298.bindPopup('南京曙光医院');
- var marker299 = new L.Marker(new L.latLng(31.9634327194, 118.869662387)); map.addLayer(marker299);marker299.bindPopup('南京江宁博爱医院');
- var marker300 = new L.Marker(new L.latLng(31.8639714303, 118.835418225)); map.addLayer(marker300);marker300.bindPopup('南京市江宁区众彩门诊部');
- var marker301 = new L.Marker(new L.latLng(32.0438117343, 118.929392502)); map.addLayer(marker301);marker301.bindPopup('南京世纪现代妇产医院（南院、东院）');
- var marker302 = new L.Marker(new L.latLng(32.0199342221, 118.802576893)); map.addLayer(marker302);marker302.bindPopup('南京建国男科医院');
- var marker303 = new L.Marker(new L.latLng(32.0572355018, 118.778074408)); map.addLayer(marker303);marker303.bindPopup('南京康豪妇科');
- var marker304 = new L.Marker(new L.latLng(32.0613681869, 118.741947469)); map.addLayer(marker304);marker304.bindPopup('南京阳光肿瘤医院');
- var marker305 = new L.Marker(new L.latLng(31.879737563, 120.539786644)); map.addLayer(marker305);marker305.bindPopup('张家港朝阳五官科医院');
- var marker306 = new L.Marker(new L.latLng(32.4886696045, 119.940306209)); map.addLayer(marker306);marker306.bindPopup('江苏泰州红房子医院');
- var marker307 = new L.Marker(new L.latLng(32.4760532748, 119.919606016)); map.addLayer(marker307);marker307.bindPopup('泰州市海陵医院');
- var marker308 = new L.Marker(new L.latLng(32.4882578377, 119.921174427)); map.addLayer(marker308);marker308.bindPopup('泰州海陵女子医院');
- var marker309 = new L.Marker(new L.latLng(33.3798618771, 120.148871818)); map.addLayer(marker309);marker309.bindPopup('盐城协和康复医院');
- var marker310 = new L.Marker(new L.latLng(33.9647793295, 118.277295348)); map.addLayer(marker310);marker310.bindPopup('宿迁市妇产医院');
- var marker311 = new L.Marker(new L.latLng(33.4259552661, 118.312551253)); map.addLayer(marker311);marker311.bindPopup('泗洪阳光儿童医院');
- var marker312 = new L.Marker(new L.latLng(33.608482612, 119.049672809)); map.addLayer(marker312);marker312.bindPopup('江苏淮安中山医院');
- var marker313 = new L.Marker(new L.latLng(33.6196404995, 119.015279164)); map.addLayer(marker313);marker313.bindPopup('淮安生殖医院');
- var marker314 = new L.Marker(new L.latLng(32.5439913287, 120.476869785)); map.addLayer(marker314);marker314.bindPopup('江苏海安华山医院');
- var marker315 = new L.Marker(new L.latLng(31.9692327827, 120.901781252)); map.addLayer(marker315);marker315.bindPopup('南通和美家妇产科医院');
- var marker316 = new L.Marker(new L.latLng(32.0209796847, 120.840369922)); map.addLayer(marker316);marker316.bindPopup('南通长城医院');
- var marker317 = new L.Marker(new L.latLng(30.5379293024, 114.340429229)); map.addLayer(marker317);marker317.bindPopup('武汉华夏医院');
- var marker318 = new L.Marker(new L.latLng(30.6074073048, 114.301343118)); map.addLayer(marker318);marker318.bindPopup('武汉华美医院');
- var marker319 = new L.Marker(new L.latLng(30.57544948, 114.2678056)); map.addLayer(marker319);marker319.bindPopup('武汉现代女子妇科医院');
- var marker320 = new L.Marker(new L.latLng(30.5810841269, 114.316200103)); map.addLayer(marker320);marker320.bindPopup('武汉当代佳丽医院');
- var marker321 = new L.Marker(new L.latLng(30.5115740975, 114.383869726)); map.addLayer(marker321);marker321.bindPopup('湖北荣军医院');
- var marker322 = new L.Marker(new L.latLng(30.5810841269, 114.316200103)); map.addLayer(marker322);marker322.bindPopup('武汉阳光女子医院');
- var marker323 = new L.Marker(new L.latLng(30.5342563291, 114.354520019)); map.addLayer(marker323);marker323.bindPopup('武汉华仁医院');
- var marker324 = new L.Marker(new L.latLng(30.3514534299, 112.227174092)); map.addLayer(marker324);marker324.bindPopup('荆州华康医院');
- var marker325 = new L.Marker(new L.latLng(30.4492685402, 114.877406246)); map.addLayer(marker325);marker325.bindPopup('黄冈泌尿专科医院');
- var marker326 = new L.Marker(new L.latLng(30.2153789856, 115.108532152)); map.addLayer(marker326);marker326.bindPopup('湖北黄石福康医院');
- var marker327 = new L.Marker(new L.latLng(32.2291685915, 112.250092848)); map.addLayer(marker327);marker327.bindPopup('襄阳市第五人民医院');
- var marker328 = new L.Marker(new L.latLng(39.6781316827, 106.831287115)); map.addLayer(marker328);marker328.bindPopup('乌海现代医院');
- var marker329 = new L.Marker(new L.latLng(40.8486389752, 111.658676699)); map.addLayer(marker329);marker329.bindPopup('内蒙古天骄医院');
- var marker330 = new L.Marker(new L.latLng(40.8065223366, 111.672736997)); map.addLayer(marker330);marker330.bindPopup('呼和浩特五洲女子医院');
- var marker331 = new L.Marker(new L.latLng(26.5702299679, 106.719737562)); map.addLayer(marker331);marker331.bindPopup('贵州退休医师医院');
- var marker332 = new L.Marker(new L.latLng(26.6299067414, 106.709177096)); map.addLayer(marker332);marker332.bindPopup('贵阳五官中心');
- var marker333 = new L.Marker(new L.latLng(26.5889216127, 106.718153895)); map.addLayer(marker333);marker333.bindPopup('贵阳长江医院');
- var marker334 = new L.Marker(new L.latLng(26.5875757483, 106.67415484)); map.addLayer(marker334);marker334.bindPopup('贵阳和谐阳光医院');
- var marker335 = new L.Marker(new L.latLng(26.5892135774, 106.660350765)); map.addLayer(marker335);marker335.bindPopup('贵阳马王庙医院');
- var marker336 = new L.Marker(new L.latLng(26.5890237081, 106.711375981)); map.addLayer(marker336);marker336.bindPopup('贵阳现代女子医院');
- var marker337 = new L.Marker(new L.latLng(26.5369093756, 106.699628899)); map.addLayer(marker337);marker337.bindPopup('贵阳和美妇产医院');
- var marker338 = new L.Marker(new L.latLng(27.7444289915, 109.201125728)); map.addLayer(marker338);marker338.bindPopup('铜仁华夏医院');
- var marker339 = new L.Marker(new L.latLng(26.2569298856, 105.931311753)); map.addLayer(marker339);marker339.bindPopup('安顺阳光妇科医院');
- var marker340 = new L.Marker(new L.latLng(27.3075918542, 105.293772353)); map.addLayer(marker340);marker340.bindPopup('毕节现代医院');
- var marker341 = new L.Marker(new L.latLng(28.236655686, 113.086531618)); map.addLayer(marker341);marker341.bindPopup('长沙华夏医院');
- var marker342 = new L.Marker(new L.latLng(28.2455028258, 113.088196065)); map.addLayer(marker342);marker342.bindPopup('长沙湘江医院七大医院');
- var marker343 = new L.Marker(new L.latLng(28.1890093327, 112.984509204)); map.addLayer(marker343);marker343.bindPopup('长沙阳光医院');
- var marker344 = new L.Marker(new L.latLng(28.2197752789, 112.986223567)); map.addLayer(marker344);marker344.bindPopup('长沙仁爱医院');
- var marker345 = new L.Marker(new L.latLng(28.1426798942, 113.013635987)); map.addLayer(marker345);marker345.bindPopup('长沙恒生手外科医院');
- var marker346 = new L.Marker(new L.latLng(28.1873711792, 113.003427642)); map.addLayer(marker346);marker346.bindPopup('长沙博大泌尿专科医院');
- var marker347 = new L.Marker(new L.latLng(28.2297693036, 113.080520942)); map.addLayer(marker347);marker347.bindPopup('长沙南方骨外科医院');
- var marker348 = new L.Marker(new L.latLng(28.1733819534, 113.005549712)); map.addLayer(marker348);marker348.bindPopup('长沙现代女子医院');
- var marker349 = new L.Marker(new L.latLng(28.1913012043, 113.012792869)); map.addLayer(marker349);marker349.bindPopup('长沙丽人妇产医院');
- var marker350 = new L.Marker(new L.latLng(27.6958640524, 111.720663546)); map.addLayer(marker350);marker350.bindPopup('武警湖南省总队医院');
- var marker351 = new L.Marker(new L.latLng(25.8113790996, 113.033843985)); map.addLayer(marker351);marker351.bindPopup('湖南郴州福康医院');
- var marker352 = new L.Marker(new L.latLng(27.870006724, 112.918831324)); map.addLayer(marker352);marker352.bindPopup('湘潭阳光眼科中心');
- var marker353 = new L.Marker(new L.latLng(27.7571764812, 112.006581068)); map.addLayer(marker353);marker353.bindPopup('娄底阳光医院');
- var marker354 = new L.Marker(new L.latLng(28.6381470824, 115.9223248)); map.addLayer(marker354);marker354.bindPopup('南昌市第五医院');
- var marker355 = new L.Marker(new L.latLng(28.6605974271, 115.889373601)); map.addLayer(marker355);marker355.bindPopup('南昌仁爱女子医院');
- var marker356 = new L.Marker(new L.latLng(28.6607630995, 115.929955628)); map.addLayer(marker356);marker356.bindPopup('南昌曙光手足外科医院');
- var marker357 = new L.Marker(new L.latLng(28.6532113687, 115.928275319)); map.addLayer(marker357);marker357.bindPopup('南昌佳美美容医院');
- var marker358 = new L.Marker(new L.latLng(28.6895780001, 115.893527546)); map.addLayer(marker358);marker358.bindPopup('南昌华山不孕不育医院');
- var marker359 = new L.Marker(new L.latLng(28.6920630182, 115.893290601)); map.addLayer(marker359);marker359.bindPopup('南昌博爱泌尿专科医院');
- var marker360 = new L.Marker(new L.latLng(28.6920776475, 115.89299195)); map.addLayer(marker360);marker360.bindPopup('南昌东大肛肠专科医院');
- var marker361 = new L.Marker(new L.latLng(28.6895780001, 115.893527546)); map.addLayer(marker361);marker361.bindPopup('南昌博大耳鼻咽喉专科医院');
- var marker362 = new L.Marker(new L.latLng(28.6895780001, 115.893527546)); map.addLayer(marker362);marker362.bindPopup('南昌泌尿专科医院');
- var marker363 = new L.Marker(new L.latLng(29.729147447, 115.986970888)); map.addLayer(marker363);marker363.bindPopup('九江玛丽亚医院');
- var marker364 = new L.Marker(new L.latLng(29.7284378291, 115.987481057)); map.addLayer(marker364);marker364.bindPopup('九江新世纪医院');
- var marker365 = new L.Marker(new L.latLng(29.7292534913, 115.986969734)); map.addLayer(marker365);marker365.bindPopup('九江阳光女子医院');
- var marker366 = new L.Marker(new L.latLng(27.1033198374, 114.990015009)); map.addLayer(marker366);marker366.bindPopup('江西吉安市第二人民医院');
- var marker367 = new L.Marker(new L.latLng(27.639544223, 113.859917033)); map.addLayer(marker367);marker367.bindPopup('萍乡市新世纪泌尿专科医院');
- var marker368 = new L.Marker(new L.latLng(27.6538807326, 113.858235046)); map.addLayer(marker368);marker368.bindPopup('萍乡妇科医院');
- var marker369 = new L.Marker(new L.latLng(25.8275655704, 114.969060751)); map.addLayer(marker369);marker369.bindPopup('赣州现代泌尿专科医院');
- var marker370 = new L.Marker(new L.latLng(28.4666339407, 117.974889833)); map.addLayer(marker370);marker370.bindPopup('上饶东大肛肠专科医院');
- var marker371 = new L.Marker(new L.latLng(28.447649232, 117.983016269)); map.addLayer(marker371);marker371.bindPopup('上饶协和医院');
- var marker372 = new L.Marker(new L.latLng(37.8457757592, 112.586359204)); map.addLayer(marker372);marker372.bindPopup('山西现代妇产医院');
- var marker373 = new L.Marker(new L.latLng(37.844155727, 112.551526711)); map.addLayer(marker373);marker373.bindPopup('山西民生医院');
- var marker374 = new L.Marker(new L.latLng(37.8579599011, 112.58969844)); map.addLayer(marker374);marker374.bindPopup('太原糖尿病专科医院');
- var marker375 = new L.Marker(new L.latLng(37.837488289, 112.590031305)); map.addLayer(marker375);marker375.bindPopup('太原新医医院');
- var marker376 = new L.Marker(new L.latLng(37.8451488819, 112.589345481)); map.addLayer(marker376);marker376.bindPopup('太原益民中医院');
- var marker377 = new L.Marker(new L.latLng(37.8111118215, 112.584866429)); map.addLayer(marker377);marker377.bindPopup('武警山西总队医院');
- var marker378 = new L.Marker(new L.latLng(37.8505234023, 112.592925667)); map.addLayer(marker378);marker378.bindPopup('山西长庚耳鼻喉医院');
- var marker379 = new L.Marker(new L.latLng(36.0772760817, 111.522945007)); map.addLayer(marker379);marker379.bindPopup('临汾现代女子医院');
- var marker380 = new L.Marker(new L.latLng(37.8636308556, 113.588002305)); map.addLayer(marker380);marker380.bindPopup('山西阳泉东方生殖医院');
- var marker381 = new L.Marker(new L.latLng(36.1988468203, 113.107086409)); map.addLayer(marker381);marker381.bindPopup('长治女子医院');
- var marker382 = new L.Marker(new L.latLng(40.1170267595, 113.295752612)); map.addLayer(marker382);marker382.bindPopup('大同新时代妇科医院');
- var marker383 = new L.Marker(new L.latLng(35.5031823251, 112.856444227)); map.addLayer(marker383);marker383.bindPopup('晋城现代女子医院');
- var marker384 = new L.Marker(new L.latLng(35.5001738652, 112.861405019)); map.addLayer(marker384);marker384.bindPopup('晋城生殖医院');
- var marker385 = new L.Marker(new L.latLng(37.8328610031, 112.584298251)); map.addLayer(marker385);marker385.bindPopup('山西新阳光妇科医院');
- var marker386 = new L.Marker(new L.latLng(35.0423422412, 111.021582444)); map.addLayer(marker386);marker386.bindPopup('运城禹都人民医院');
- var marker387 = new L.Marker(new L.latLng(34.2348968487, 108.914515406)); map.addLayer(marker387);marker387.bindPopup('西安俪人医院');
- var marker388 = new L.Marker(new L.latLng(35.8600262613, 109.503789291)); map.addLayer(marker388);marker388.bindPopup('武警陕西总队医院');
- var marker389 = new L.Marker(new L.latLng(34.3251994208, 108.977774642)); map.addLayer(marker389);marker389.bindPopup('西安阳光医院');
- var marker390 = new L.Marker(new L.latLng(40.6598343162, 109.846085102)); map.addLayer(marker390);marker390.bindPopup('包头现代女子妇产医院');
- var marker391 = new L.Marker(new L.latLng(32.9565738265, 117.383574399)); map.addLayer(marker391);marker391.bindPopup('澳美佳女子医院');
- var marker392 = new L.Marker(new L.latLng(32.9455028675, 117.372807516)); map.addLayer(marker392);marker392.bindPopup('蚌埠解放军一二三中心医院');
- var marker393 = new L.Marker(new L.latLng(33.4887043805, 116.247040853)); map.addLayer(marker393);marker393.bindPopup('涡阳阳光医院');
- var marker394 = new L.Marker(new L.latLng(31.3660197875, 118.384108423)); map.addLayer(marker394);marker394.bindPopup('芜湖阳光眼科医院');
- var marker395 = new L.Marker(new L.latLng(31.3665608416, 118.376156663)); map.addLayer(marker395);marker395.bindPopup('芜湖丹凤朝阳妇科医院');
- var marker396 = new L.Marker(new L.latLng(31.6037301569, 117.889227965)); map.addLayer(marker396);marker396.bindPopup('巢湖康平妇产医院');
- var marker397 = new L.Marker(new L.latLng(31.6087325475, 117.880490417)); map.addLayer(marker397);marker397.bindPopup('巢湖阳光妇幼医院');
- var marker398 = new L.Marker(new L.latLng(33.9728824241, 116.799901741)); map.addLayer(marker398);marker398.bindPopup('淮北女子医院');
- var marker399 = new L.Marker(new L.latLng(33.9795690339, 116.814327989)); map.addLayer(marker399);marker399.bindPopup('淮北阳光心理院');
- var marker400 = new L.Marker(new L.latLng(31.8792421793, 117.320810691)); map.addLayer(marker400);marker400.bindPopup('合肥市中山医院');
- var marker401 = new L.Marker(new L.latLng(31.8669422607, 117.282699092)); map.addLayer(marker401);marker401.bindPopup('合肥九龙男科医院');
- var marker402 = new L.Marker(new L.latLng(31.8891879355, 117.312850357)); map.addLayer(marker402);marker402.bindPopup('合肥丹凤朝阳妇科医院');
- var marker403 = new L.Marker(new L.latLng(36.0968662175, 114.341084952)); map.addLayer(marker403);marker403.bindPopup('安阳协和医院');
- var marker404 = new L.Marker(new L.latLng(34.7555919757, 113.746707549)); map.addLayer(marker404);marker404.bindPopup('河南中都皮肤病医院');
- var marker405 = new L.Marker(new L.latLng(34.771524334, 113.680136322)); map.addLayer(marker405);marker405.bindPopup('河南省军区医院');
- var marker406 = new L.Marker(new L.latLng(34.7566100641, 113.64964385)); map.addLayer(marker406);marker406.bindPopup('郑州集美整形美容医院');
- var marker407 = new L.Marker(new L.latLng(34.7220584155, 113.6912705)); map.addLayer(marker407);marker407.bindPopup('郑州华夏白癜风医院');
- var marker408 = new L.Marker(new L.latLng(34.7454081795, 112.990512302)); map.addLayer(marker408);marker408.bindPopup('巩义阳光医院');
- var marker409 = new L.Marker(new L.latLng(34.7424941841, 113.606657943)); map.addLayer(marker409);marker409.bindPopup('郑州华山医院');
- var marker410 = new L.Marker(new L.latLng(34.0222376046, 113.824081575)); map.addLayer(marker410);marker410.bindPopup('许昌新时代妇科医院');
- var marker411 = new L.Marker(new L.latLng(34.0287579553, 113.827378887)); map.addLayer(marker411);marker411.bindPopup('许昌凤凰医院');
- var marker412 = new L.Marker(new L.latLng(34.0341927085, 113.830351836)); map.addLayer(marker412);marker412.bindPopup('许昌中山医院');
- var marker413 = new L.Marker(new L.latLng(39.5455857573, 116.712363363)); map.addLayer(marker413);marker413.bindPopup('廊坊万福医院');
- var marker414 = new L.Marker(new L.latLng(39.5182225287, 116.715019368)); map.addLayer(marker414);marker414.bindPopup('廊坊世纪协和医院');
- var marker415 = new L.Marker(new L.latLng(38.8711483195, 115.523541303)); map.addLayer(marker415);marker415.bindPopup('保定京津医院');
- var marker416 = new L.Marker(new L.latLng(38.866216365, 115.491827372)); map.addLayer(marker416);marker416.bindPopup('保定世纪协和医院');
- var marker417 = new L.Marker(new L.latLng(38.886564548, 115.494810169)); map.addLayer(marker417);marker417.bindPopup('保定长安医院');
- var marker418 = new L.Marker(new L.latLng(38.8886175314, 115.463214148)); map.addLayer(marker418);marker418.bindPopup('保定现代女子医院');
- var marker419 = new L.Marker(new L.latLng(38.853287238, 115.499786946)); map.addLayer(marker419);marker419.bindPopup('保定白癜风医院');
- var marker420 = new L.Marker(new L.latLng(39.6357951556, 118.156690705)); map.addLayer(marker420);marker420.bindPopup('唐山京城皮肤病医院');
- var marker421 = new L.Marker(new L.latLng(39.6307759714, 118.145290669)); map.addLayer(marker421);marker421.bindPopup('唐山女子医院');
- var marker422 = new L.Marker(new L.latLng(39.8331523281, 118.121242492)); map.addLayer(marker422);marker422.bindPopup('唐山红十字医院');
- var marker423 = new L.Marker(new L.latLng(35.241712363, 113.230803965)); map.addLayer(marker423);marker423.bindPopup('解放军534医院');
- var marker424 = new L.Marker(new L.latLng(34.6573678177, 112.447524769)); map.addLayer(marker424);marker424.bindPopup('洛阳牡丹女子医院');
- var marker425 = new L.Marker(new L.latLng(32.1285823075, 114.085490993)); map.addLayer(marker425);marker425.bindPopup('信阳泌尿外科医院');
- var marker426 = new L.Marker(new L.latLng(33.7453014565, 113.300848978)); map.addLayer(marker426);marker426.bindPopup('平顶山市武警医院');
- var marker427 = new L.Marker(new L.latLng(33.5836737284, 114.047195767)); map.addLayer(marker427);marker427.bindPopup('漯河东方医院');
- var marker428 = new L.Marker(new L.latLng(38.0414321122, 114.492739413)); map.addLayer(marker428);marker428.bindPopup('河北东方中西医结合医院');
- var marker429 = new L.Marker(new L.latLng(38.0414330978, 114.492737336)); map.addLayer(marker429);marker429.bindPopup('石家庄美联臣医疗美容医院');
- var marker430 = new L.Marker(new L.latLng(36.6093079285, 114.482693932)); map.addLayer(marker430);marker430.bindPopup('邯郸仁爱妇科医院');
- var marker431 = new L.Marker(new L.latLng(31.3673154027, 89.137981684)); map.addLayer(marker431);marker431.bindPopup('西藏博爱医院');
- var marker432 = new L.Marker(new L.latLng(29.6625570621, 91.111890896)); map.addLayer(marker432);marker432.bindPopup('拉萨北大泌尿生殖医院');
- var marker433 = new L.Marker(new L.latLng(38.4564712813, 106.289053039)); map.addLayer(marker433);marker433.bindPopup('宁夏西京妇产医院');
- var marker434 = new L.Marker(new L.latLng(36.0470975408, 103.835148115)); map.addLayer(marker434);marker434.bindPopup('兰州仁和医院');
- var marker435 = new L.Marker(new L.latLng(23.5522546881, 108.924274427)); map.addLayer(marker435);marker435.bindPopup('广西阳光医院');
- var marker436 = new L.Marker(new L.latLng(25.262901246, 110.260920147)); map.addLayer(marker436);marker436.bindPopup('桂林阳光医院');
- var marker437 = new L.Marker(new L.latLng(24.3000587616, 109.44496363)); map.addLayer(marker437);marker437.bindPopup('柳州福康医院');
- var marker438 = new L.Marker(new L.latLng(39.0153694033, 106.386197112)); map.addLayer(marker438);marker438.bindPopup('伊犁阳光女子医院');
- var marker439 = new L.Marker(new L.latLng(44.0203558193, 81.2890480715)); map.addLayer(marker439);marker439.bindPopup('伊宁阳光女子医院');
- var marker440 = new L.Marker(new L.latLng(43.7912808338, 87.6212979322)); map.addLayer(marker440);marker440.bindPopup('新彊维吾尔自治区人民医院肿瘤中心');
- var marker441 = new L.Marker(new L.latLng(30.5074351785, 105.587308045)); map.addLayer(marker441);marker441.bindPopup('新疆爱德华医院');
- var marker442 = new L.Marker(new L.latLng(20.045150059, 110.374206388)); map.addLayer(marker442);marker442.bindPopup('武警海南总队医院妇科中心');
- var marker443 = new L.Marker(new L.latLng(22.8130437138, 114.1048159220)); map.addLayer(marker443);marker443.bindPopup('塘厦康桥医院');
- var marker444 = new L.Marker(new L.latLng(37.8330239746, 112.5749293994)); map.addLayer(marker444);marker444.bindPopup('白癜风医院');
-//PYTHONBRIDGEEND
+    <section class="main-content">
+        <h3>健康资料-药物查询</h3>
+        1.<a href="/zhongyi/">有害中药不完全清单速查</a>|<a href="/zhongyi/Overview.html">文字版</a>|<a href="/zhongyi/table.htm">表格版</a></br>
+        2.<a href="/zhongyi/2.html">添加“西药”的中成药(部分)</a></br>    
+        3.<a href="https://health.gov/dietaryguidelines/2015/guidelines/">美国居民膳食指南 2015-2020</a>|<a href="https://health.gov/dietaryguidelines/2015/resources/2015-2020_Dietary_Guidelines.pdf">pdf(美)</a>|<a href="http://dg.cnsoc.org/upload/affix/20170531154311901.pdf">pdf(中译版)</a>|<a href="http://dg.cnsoc.org/newslist_0501_1.htm">其他国指南</a>|<a href="/cnsoc.htm">中国膳食指南</a></br>
+        4.<a href="http://db.yaozh.com/foreign.html">国外药典在线</a>|<a href="http://www.fda.gov">美国FDA</a>|<a href="https://www.drugs.com/">Drugs</a></br>
+        5.<a href="http://www.msdmanuals.com/zh/">《默沙东诊疗手册》</a>|<a href="https://www.msdmanuals.com/zh/首页">大众家庭版</a>|<a href="https://www.msdmanuals.com/zh/专业">医学专业人士</a></br>
+        6.<a href="http://www.zhaodiao.net/kx.html">药品查询收集</a></br>
+        7.<a href="http://www.chinacdc.cn/jkzt/mxfcrjbhsh/gxy/">中国疾病预防控制中心 高血压</a>|<a href="W020130227325890937977.pdf">中国高血压防治指南（1999年试用版）</a></br>
+        8.<a href="/ip/">IP信息</a></br>
 
 
-    </script>
-</body>
+        <h3>如果儿童得了感冒，不吃感冒药，怎么缓解症状呢?</h3>
+        <h4>关于病毒感冒和细菌感冒</h4>  
+        一般人说的感冒，指的是上呼吸道感染。上呼吸道感染绝大部分是病毒感染引起，最常见的是普通感冒，还有急性病毒性咽炎或喉炎；少部分是细菌感染引起，例如急性中耳炎、急性细菌性鼻窦炎、链球菌引起的急性咽炎。</br>
+       <h4>关于用药-儿童</h4>  
+有这些办法可以参考：</br> 【要退烧、缓解疼痛】可以吃对乙酰氨基酚或布洛芬(中低度的发烧其实是不用退的)。
+对乙酰氨基酚或布洛芬如果不过量使用，是非常安全的，所以要注意用儿童剂量的，例如“小儿泰诺林”、“美林”。
+但是不到6个月大的儿童不要用布洛芬(“美林”)。任何年龄的儿童都不要用阿司匹林解热镇痛，因为阿司匹林对儿童有引起致命的雷依氏综合征的风险。</br> 
+【减轻鼻塞】可以使用盐水滴鼻液。多喝水也可减轻鼻塞并防止脱水。</br> 
+【鼓励儿童咳嗽】，咳嗽能帮助清理呼吸道。吃冷饮能缓解咽喉疼痛、多休息。如果空气干燥，使用加湿器。</br> </br> 
+最后，密切观察儿童症状的变化，如果发现不寻常的状况(例如持续高烧、呼吸困难、排尿不正常等等)，即时就医。
+如果过了一周感冒还没有好或症状变得更严重，去医院查一下是否并发了细菌感染，例如鼻炎或耳朵感染。</br>
+       <h4>关于用药-成人</h4>  
+市场上感冒药的品种虽然繁多，但是有效成分就这几种：</br>
+解热镇痛药：对乙酰氨基酚(也叫扑热息痛)，用于退烧和缓解头痛</br>
+抗组胺药：马来酸氯苯那敏(也叫扑尔敏)或苯海拉明，用于减少鼻黏液分泌和缓解鼻塞</br>
+减轻鼻黏膜充血：伪麻黄碱</br>
+止咳：右美沙芬</br>
+        <h4>关于检查</h4> 
+        感冒不需要查血常规，因为血常规检测不出来，也排查不出来。</br>
+1.如果医生没有查耳朵，就不是怀疑是急性中耳炎，而查血常规并不能帮助诊断。</br>
+2.如果医生没有用压舌板查咽喉，就不是怀疑是链球菌急性咽炎，而查血常规并不能帮助诊断。</br>
+3.如果医生没有用听诊器，就不是怀疑是肺炎，那就不仅要查血常规，还要拍胸片。</br>
+        <h4>关于验血</h4> 
+        对疑似感冒、发烧患者一概做血常规检查，就是只有在中国医院才会发生的、具有中国特色的医疗欺诈。</br>
+        例如白血病、肺炎、心肌炎，血常规能从这些“感冒患者”中发现这些严重疾病的线索。仅有感冒症状加血常规也无助于区分这些，除非骨髓穿刺以排除白血病，做X光胸片以排除肺炎，做心电图以排除心肌炎。如果有病史、体征表明疑似感冒或发烧患者可能患有别的严重疾病，例如肺炎、白血病，当然可以做血常规以及别的必要检查。</br>
+ </br>
+
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+</section>
+
+<div id="container"></div>
+<script>
+var gitment = new Gitment({
+  id: 'location.href', 
+  owner: 'zhaodiao',
+  repo: 'zhaodiao.github.io',
+  oauth: {
+    client_id: '4a33e0bbbae10050792d',
+    client_secret: '62d264f9a15a3e3ea50dab2c347f966d64203465',
+  },
+})
+gitment.render('container')
+</script>
+
+      <footer class="site-footer">
+        &nbsp;不着调，来找调网，共同搭建一个靠谱的网！</br> 
+      </footer>
+  </body>
 </html>
