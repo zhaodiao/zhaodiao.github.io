@@ -5,6 +5,14 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
 <meta name="format-detection" content="telephone=no"/>
+<script type="application/javascript">
+function getIP(json) {
+    var tmp = JSON.stringify(json, null, 2);
+    for (key in json) {
+    document.write("<br>" + key + " : ", json[key]);
+	}
+}
+</script>	
 <script>
   function findIP(onNewIP) { //  onNewIp - your listener function for new IPs
   var myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection; //compatibility for firefox and chrome
@@ -87,7 +95,7 @@ function getIPSB(eid) {
 		for (key in xhr.response) {
 				if (key==='ip') 
 					document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : <a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + xhr.response[key] + '"><span id="remote_addr">' + xhr.response[key] + '</span></a>';
-				else if (key==='country' || key==='city') ///(xhr.response[key] != "")
+				else if (key==='country' || key==='region') ///(xhr.response[key] != "")
 					document.getElementById(eid).innerHTML += " <b>" + key + "</b> : " + xhr.response[key];
 			}
 		}
@@ -124,7 +132,7 @@ function getIPInfo(eid) {
 		for (key in xhr.response) {
 				if (key==='ip' || key==='query') {
 				document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : <a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + xhr.response[key] + '">' + xhr.response[key] + '</a>'; 
-				}else if (key==='country' || key==='city') {
+				}else if (key==='country' || key==='region') {
 				document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : ' + xhr.response[key]; 
 				}
 			}
@@ -159,7 +167,7 @@ function getIPApiCo(eid) {
 				//document.write("<br>" + key + " : ", xhr.response[key]);
 				if (key==='ip' || key==='query') {
 				document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : <a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + xhr.response[key] + '">' + xhr.response[key] + '</a>'; 
-				}else if (key==='country' || key==='city') {
+				}else if (key==='country' || key==='region') {
 				document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : ' + xhr.response[key]; 
 				}
 			}
@@ -180,7 +188,7 @@ function getIPStack(eid) {
 		for (key in xhr.response) {
 				if (key==='ip' || key==='query') {
 					document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : <a href="http://ip.taobao.com/service/getIpInfo.php?ip=' + xhr.response[key] + '">' + xhr.response[key] + '</a>'; 
-				}else if (key==='country_name' || key==='city') {
+				}else if (key==='country_name' || key==='region_name') {
 					document.getElementById(eid).innerHTML += ' <b>' + key + '</b> : ' + xhr.response[key]; 
 				}else if (key==='location' || key==='time_zone' || key==='currency' || key==='connection' || key==='security') {
 				}
