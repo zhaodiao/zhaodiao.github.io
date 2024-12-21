@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>浏览器头信息</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        .header {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div>---<a href="ips.html">all ip</a>---</div>
+
+    <p>ipify：<span class="header" id="ipify">正在获取...</span></p>
+    <div><p>sohu: <span id="sohuIP">正在获取...</span></p></div>
+    <div id="WebRTCIP">WebRTCIP 查询失败.</div>
+    <p>-------headers--------</p>
+    <p id="Headers">all headers 查询中...</p>
+    <p>-------user-agent--------</p>
+    <p id="UserAgent">ua 查询中...</p>
+
+    <script>
+        async function fetchJsonp(url, callbackName) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = `${url}&callback=${callbackName}`;
+                script.onload = resolve;
+                script.onerror = reject;
+                document.body.appendChild(script);
+            });
+        }
+
+        async function getIP() {
+            try {
+                await fetchJsonp('http://ipinfo.io/?format=jsonp', 'getIP');
+            } catch (error) {
+                console.error('Error fetching IP info:', error);
+            }
+        }
+
+        function displayIP(json) {
+            const ipInfoDiv = document.createElement('div');
+            for (const key in json) {
+                const p = document.createElement('p');
+                p.textContent = `${key}: ${json[key]}`;
+                ipInfoDiv.appendChild(p);
+            }
+            document.body.appendChild(ipInfoDiv);
+        }
+
+        async function getIPify() {
+            try {
+                const response = await fetch('//api.ipify.org?format=json');
+                const data = await response.json();
+                document.getElementById('ipify').textContent = data.ip;
+            } catch (error) {
+                console.error('Error fetching IPify:', error);
+            }
+        }
+
+        function getSohuIP() {
+            const script = document.createElement('script');
+            script.src = 'http://pv.sohu.com/cityjson?ie=utf-8';
+            script.onload = () => {
+                document.getElementById('sohuIP').textContent = `${returnCitySN["cip"]}, ${returnCitySN["cname"]}`;
+            };
+            document.body.appendChild(script);
+        }
+
+        async function getHeaders() {
+            try {
+                const response = await fetch(document.location);
+                const headers = new Headers(response.headers);
+                let display = '';
+
+                headers.forEach((value, key) => {
+                    display += `<b>${key}</b>: ${value}<br>`;
+                });
+
+                display += `<b>Referer</b>: ${document.referrer}<br>`;
+                display += `<b>UserAgent</b>: ${navigator.userAgent}<br>`;
+
+                document.getElementById('Headers').innerHTML = display;
+            } catch (error) {
+                console.error('Error fetching headers:', error);
+            }
+        }
+
+        function getUserAgent() {
+            const userAgentInfo = `
+                <div>
+                    Browser CodeName: ${navigator.appCodeName}<br>
+                    Browser Name: ${navigator.appName}<br>
+                    Browser Version: ${navigator.appVersion}<br>
+                    Cookies Enabled: ${navigator.cookieEnabled}<br>
+                    Browser Language: ${navigator.language}<br>
+                    Browser Online: ${navigator.onLine}<br>
+                    Platform: ${navigator.platform}<br>
+                </div>
+            `;
+            document.getElementById('UserAgent').innerHTML = userAgentInfo;
+        }
+
+        function findIP(onNewIP) {
+            const myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
+            const pc = new myPeerConnection({ iceServers: [] });
+            const localIPs = {};
+            const ipRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g;
+
+            function ipIterate(ip) {
+                if (!localIPs[ip]) onNewIP(ip);
+                localIPs[ip] = true;
+            }
+
+            pc.createDataChannel('');
+            pc.createOffer().then(sdp => {
+                sdp.sdp.split('\n').forEach(line => {
+                    if (line.indexOf('candidate') < 0) return;
+                    line.match(ipRegex).forEach(ipIterate);
+                });
+                pc.setLocalDescription(sdp);
+            }).catch(error => console.error('Error creating offer:', error));
+
+            pc.onicecandidate = function (ice) {
+                if (!ice || !ice.candidate || !ice.candidate.candidate) return;
+                ice.candidate.candidate.match(ipRegex).forEach(ipIterate);
+            };
+        }
+
+        function addIP(ip) {
+            document.getElementById('WebRTCIP').textContent = `WebRTC IP: ${ip}`;
+        }
+
+        // Initialize all functions
+        getIP();
+        getIPify();
+        getSohuIP();
+        getHeaders();
+        getUserAgent();
+        findIP(addIP);
+
+        // Callback function for ipinfo.io JSONP
+        function getIP(json) {
+            displayIP(json);
+        }
+    </script>
+</body>
+
+</html>
